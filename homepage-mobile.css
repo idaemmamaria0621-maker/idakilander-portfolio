@@ -1,6 +1,66 @@
+/* Neon orange för mobil hover */
+@media (max-width: 900px) {
+  body.page-homepage .hero-copy .cta-row .btn-primary:hover,
+  body.page-homepage .hero-copy .cta-row .btn-primary:active {
+    background: #ff5e00 !important; /* Neon orange */
+    color: #fff !important;
+    box-shadow: 0 0 16px 2px #ff5e00, 0 10px 28px rgba(0,0,0,0.28);
+    border-color: #ff5e00 !important;
+    text-shadow: 0 0 8px #ff5e00;
+  }
+
+  body.page-homepage .topbar-nav a.download-cv:hover,
+  body.page-homepage .topbar-nav a.download-cv:active,
+  body.page-homepage .topbar-nav a.download-cv:focus-visible {
+    color: #ff5e00 !important;
+    border-color: #ff5e00 !important;
+    background: rgba(255,94,0,0.08) !important;
+    text-shadow: 0 0 8px #ff5e00;
+    box-shadow: 0 0 16px 2px #ff5e00;
+  }
+}
 /**
  * homepage-mobile.css — Homepage mobile layout (matches mobile hero mockup)
  */
+
+@media (max-width: 900px) {
+  html.page-homepage {
+    background-color: #000 !important;
+  }
+
+  body.page-homepage {
+    --bg-deep: #000;
+    --bg-panel: #000;
+    background-color: #000 !important;
+    padding: 0 !important;
+  }
+
+  body.page-homepage .layout,
+  body.page-homepage .main,
+  body.page-homepage .hero,
+  body.page-homepage .hero-inner,
+  body.page-homepage .hero-visual,
+  body.page-homepage .hero-copy,
+  body.page-homepage .projects-section {
+    background: transparent !important;
+  }
+
+  body.page-homepage .topbar {
+    background: #000 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  body.page-homepage .ambient-bg__noise,
+  body.page-homepage .ambient-bg__grid,
+  body.page-homepage .ambient-bg__float--1,
+  body.page-homepage .ambient-bg__float--2,
+  body.page-homepage .ambient-bg__vignette {
+    opacity: 0 !important;
+  }
+}
 
 @media (max-width: 992px) {
   body.page-homepage .cta-row {
@@ -94,38 +154,35 @@
 
 @media (max-width: 768px) {
   body.page-homepage {
-    --bg-deep: #2b2825;
-    --bg-panel: #322e2a;
+    --bg-deep: #000;
+    --bg-panel: #000;
     --accent-warm: #d68b4c;
     --accent-warm-rgb: 214, 139, 76;
     --topbar-height: 4.75rem;
-    --hero-space-title-role: 0.65rem;
-    --hero-space-role-body: 1.15rem;
-    --hero-space-body-cta: 1.35rem;
-    --hero-space-cta-scroll: 1.25rem;
+    --hero-space-title-role: 0.6rem;
+    --hero-space-role-body: 1rem;
+    --hero-space-body-cta: 1.15rem;
+    --hero-space-cta-scroll: 0.85rem;
     scroll-padding-top: var(--topbar-height);
+    margin-left: 24px;
+    margin-right: 24px;
   }
 
   html.page-homepage {
-    background-color: #2b2825;
+    background-color: #000;
   }
 
   body.page-homepage {
-    background-color: #2b2825;
+    background-color: #000;
     padding: 0;
   }
 
-  body.page-homepage .ambient-bg__float--1 {
-    opacity: 0.12;
-    background: radial-gradient(circle, rgba(214, 139, 76, 0.35) 0%, transparent 72%);
-  }
-
-  body.page-homepage .ambient-bg__float--2 {
-    opacity: 0.2;
-  }
-
+  body.page-homepage .ambient-bg__noise,
+  body.page-homepage .ambient-bg__grid,
+  body.page-homepage .ambient-bg__float--1,
+  body.page-homepage .ambient-bg__float--2,
   body.page-homepage .ambient-bg__vignette {
-    background: radial-gradient(ellipse 95% 85% at 50% 20%, transparent 0%, rgba(0, 0, 0, 0.55) 100%);
+    opacity: 0 !important;
   }
 
   body.page-homepage .lead--hero-mobile {
@@ -141,7 +198,7 @@
   }
 
   body.page-homepage .main {
-    padding-top: 0.35rem;
+    padding-top: 0.5rem;
   }
 
   body.page-homepage .reveal-on-scroll,
@@ -151,9 +208,26 @@
   }
 
   body.page-homepage .topbar {
-    background: rgba(43, 40, 37, 0.94);
-    border-bottom-color: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    background: #000 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  body.page-homepage .topbar::before,
+  body.page-homepage .topbar::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  body.page-homepage .topbar-nav a::after,
+  body.page-homepage .topbar-nav a::before {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    box-shadow: none !important;
   }
 
   body.page-homepage .topbar-inner {
@@ -171,7 +245,7 @@
     align-items: baseline;
     flex: 0 1 auto;
     min-width: 0;
-    max-width: calc(100% - 10.75rem);
+    max-width: calc(100% - 7.5rem);
     min-height: auto;
     gap: 0.35rem;
     flex-wrap: nowrap;
@@ -258,100 +332,6 @@
     height: auto;
   }
 
-  body.page-homepage .topbar-menu-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    color: #ffffff;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  body.page-homepage .topbar-menu-btn:focus-visible {
-    outline: 2px solid var(--accent-warm);
-    outline-offset: 3px;
-  }
-
-  body.page-homepage .topbar-menu-btn__bars {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 1.35rem;
-  }
-
-  body.page-homepage .topbar-menu-btn__bars span {
-    display: block;
-    height: 2px;
-    border-radius: 2px;
-    background: currentColor;
-  }
-
-  body.page-homepage.homepage-menu-open .topbar-menu-btn__bars span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  body.page-homepage.homepage-menu-open .topbar-menu-btn__bars span:nth-child(2) {
-    opacity: 0;
-  }
-
-  body.page-homepage.homepage-menu-open .topbar-menu-btn__bars span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  body.page-homepage .topbar-menu-btn__bars span {
-    transition: transform 0.22s ease, opacity 0.22s ease;
-  }
-
-  body.page-homepage .homepage-mobile-menu {
-    display: block;
-    position: fixed;
-    inset: var(--topbar-height) 0 0 0;
-    z-index: 110;
-    padding: 1.25rem 24px 2rem;
-    background: rgba(35, 32, 29, 0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-  }
-
-  body.page-homepage .homepage-mobile-menu.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  body.page-homepage .homepage-mobile-menu__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  body.page-homepage .homepage-mobile-menu__nav a {
-    display: block;
-    padding: 0.85rem 0;
-    font-size: 1rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.94);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  body.page-homepage .homepage-mobile-menu__nav a:last-child {
-    color: var(--accent-warm);
-    border-bottom: none;
-  }
-
   body.page-homepage .hero {
     min-height: calc(100dvh - var(--topbar-height));
     overflow: visible;
@@ -363,7 +343,7 @@
     grid-template-columns: unset;
     align-items: stretch;
     min-height: calc(100dvh - var(--topbar-height) - 0.5rem);
-    padding-block: 0.25rem 1.25rem;
+    padding-block: 0.85rem 1rem;
     padding-inline: 0;
     gap: 0;
   }
@@ -375,12 +355,15 @@
     overflow: visible;
     align-items: center;
     justify-content: center;
-    padding-top: 0.15rem;
+    padding-top: 1rem;
+    padding-bottom: 0.35rem;
+    margin-top: 0.35rem;
+    margin-bottom: 0.25rem;
   }
 
   body.page-homepage .hero-photo-mask {
-    width: min(100%, 300px);
-    max-width: 300px;
+    width: min(100%, 250px);
+    max-width: 250px;
     margin-inline: auto;
     overflow: visible;
     animation: none;
@@ -393,7 +376,7 @@
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: min(52vh, 380px);
+    max-height: min(42vh, 285px);
     margin-inline: auto;
     object-fit: contain;
     object-position: top center;
@@ -406,7 +389,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem 0 0.5rem;
+    padding: 1.05rem 0 0.25rem;
     padding-inline: 0;
     text-align: center;
   }
@@ -493,8 +476,10 @@
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
+    flex-shrink: 0;
     margin-top: auto;
-    padding-top: 1.35rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.35rem;
     color: rgba(255, 255, 255, 0.88);
   }
 
@@ -523,11 +508,16 @@
   }
 
   body.page-homepage .hero-photo-mask {
-    max-width: min(100%, 270px);
+    max-width: min(100%, 220px);
   }
 
   body.page-homepage .hero-photo {
-    max-height: min(48vh, 340px);
+    max-height: min(38vh, 250px);
+  }
+
+  body.page-homepage .hero-visual {
+    padding-top: 0.85rem;
+    margin-top: 0.25rem;
   }
 
   body.page-homepage .project-showcase {
