@@ -1,0 +1,2656 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Ivrell Wallsten AB - Case Study</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --text-body: #334155;
+        --ui-control-fs: 0.9375rem;
+        --ui-control-lh: 1.3;
+        --bg: #f7f4ef;
+        --bg-soft: #efe9df;
+        --surface: rgba(255, 255, 255, 0.94);
+        --surface-strong: #faf8f5;
+        --surface-solid: #ffffff;
+
+        --text: #000000;
+        --text-soft: #000000;
+        --muted: #000000;
+
+        --line: rgba(68, 64, 60, 0.12);
+        --line-strong: rgba(68, 64, 60, 0.18);
+
+        --sand-soft: rgba(214, 196, 176, 0.22);
+        --beige-soft: rgba(231, 223, 208, 0.45);
+        --champagne-soft: rgba(245, 238, 224, 0.65);
+        --warm-gray-soft: rgba(168, 162, 154, 0.14);
+
+        --shadow-xl: 0 28px 72px rgba(28, 25, 22, 0.07);
+        --shadow-lg: 0 18px 48px rgba(28, 25, 22, 0.06);
+        --shadow-md: 0 12px 32px rgba(28, 25, 22, 0.05);
+        --shadow-sm: 0 6px 20px rgba(28, 25, 22, 0.045);
+
+        --radius-2xl: 38px;
+        --radius-xl: 28px;
+        --radius-lg: 22px;
+        --radius-md: 18px;
+        --radius-sm: 14px;
+        --pill: 999px;
+
+        --max: 1280px;
+        --reading: 860px;
+        --section-space: 64px;
+
+        --focus: 0 0 0 3px rgba(120, 113, 108, 0.28);
+
+        /* Brand text aligned with homepage (orange “Portfolio”); bar stays neutral */
+        --signature-ink: #000000;
+        --accent-warm: #ff8c00;
+        --toc-sticky-top: calc(var(--topbar-height) + 1rem);
+      }
+
+      :root {
+        --wcag-bg: #f7f4ef;
+        --wcag-surface: #faf8f5;
+        --wcag-paper: #ffffff;
+        --wcag-text: #000000;
+        --wcag-muted: #000000;
+        --wcag-accent: #44403c;
+        --wcag-accent-hover: #292524;
+        --wcag-accent-contrast: #faf8f5;
+        --wcag-border: rgba(87, 83, 78, 0.14);
+        --wcag-ink: #292524;
+        --iwab-brand-blue: #2a4a6e;
+        --iwab-brand-blue-soft: rgba(42, 74, 110, 0.13);
+        --iwab-brand-blue-border: rgba(42, 74, 110, 0.24);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: auto;
+        scrollbar-gutter: stable;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .fade-up {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--text-body);
+        background: linear-gradient(
+          180deg,
+          #fbf9f6 0%,
+          #f7f4ef 38%,
+          #f2ebe3 100%
+        );
+        line-height: 1.65;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      * {
+        font-family: var(--font-sans);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid rgba(68, 64, 60, 0.45);
+        outline-offset: 3px;
+        border-radius: 14px;
+      }
+
+      .btn.primary:focus-visible {
+        outline-color: rgba(250, 248, 245, 0.95);
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 240px));
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 12px 18px;
+        border-radius: var(--pill);
+        border: 1px solid var(--wcag-border);
+        background: var(--wcag-paper);
+        color: var(--wcag-text);
+        font-weight: 700;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn.primary {
+        color: var(--wcag-accent-contrast);
+        border-color: rgba(41, 37, 36, 0.35);
+        background: var(--wcag-accent);
+      }
+
+      .btn.ghost:hover {
+        background: rgba(255, 255, 255, 0.65);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .side-nav {
+        position: sticky;
+        top: var(--toc-sticky-top);
+        align-self: start;
+        z-index: 50;
+        max-height: calc(100dvh - var(--toc-sticky-top) - 1.5rem);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        padding-right: 4px;
+      }
+
+      .toc-card {
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      .toc-label {
+        margin: 0 0 12px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #78716c;
+      }
+
+      .toc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .toc-list a {
+        display: block;
+        padding: 8px 0;
+        border: none;
+        border-radius: 0;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        color: #57534e;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .toc-list a:hover {
+        background: transparent;
+        color: #111111;
+        opacity: 0.85;
+        transform: none;
+      }
+
+      .toc-list a.active {
+        background: transparent;
+        border: none;
+        color: #111111;
+        font-weight: 700;
+        opacity: 1;
+        transform: none;
+      }
+
+      #main-content {
+        padding-top: var(--topbar-height);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      .content-main > section:first-of-type {
+        padding-top: 0;
+      }
+
+      section {
+        padding: var(--section-space) 0;
+        scroll-margin-top: calc(var(--topbar-height) + 2.5rem);
+      }
+
+      .hero {
+        padding: 36px 0 24px;
+      }
+
+      .hero-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-2xl);
+        padding: 52px 56px;
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        align-items: center;
+        gap: 40px;
+        background: linear-gradient(
+          165deg,
+          #ffffff 0%,
+          #faf8f5 55%,
+          #f5f0e8 100%
+        );
+        border: 1px solid var(--wcag-border);
+        box-shadow: var(--shadow-xl);
+        isolation: isolate;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        top: -130px;
+        right: -90px;
+        background: radial-gradient(
+          circle,
+          rgba(214, 196, 176, 0.2),
+          transparent 72%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        left: -70px;
+        bottom: -95px;
+        background: radial-gradient(
+          circle,
+          rgba(200, 188, 168, 0.14),
+          transparent 72%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .foundation-intro {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        gap: 0;
+      }
+
+      .project-foundation {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .foundation-card {
+        border-radius: var(--radius-lg);
+        padding: 26px;
+        box-shadow: 0 6px 22px rgba(17, 24, 39, 0.06);
+      }
+
+      .foundation-row {
+        display: grid;
+        gap: 22px;
+      }
+
+      .foundation-row--basics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .foundation-row--basics .foundation-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+
+      .foundation-row--timeline {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .foundation-row--split {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: start;
+      }
+
+      .foundation-col--right {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .narrative-card .narrative-block + .narrative-block {
+        margin-top: 22px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(87, 83, 78, 0.12);
+      }
+
+      .narrative-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.08rem;
+      }
+
+      .narrative-card .narrative-block p {
+        margin: 0;
+        line-height: 1.75;
+        color: var(--wcag-muted);
+      }
+
+      .shared-panel .panel-title {
+        margin-bottom: 12px;
+      }
+
+      .timeline-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 20px 18px;
+        border-radius: var(--radius-md);
+        background: var(--wcag-paper);
+        border: 1px solid var(--wcag-border);
+      }
+
+      .foundation-intro,
+      .hero-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .panel,
+      .card,
+      .metric-card,
+      .insight-card,
+      .section-card {
+        background: var(--wcag-surface);
+      }
+
+      .dark-panel {
+        background: linear-gradient(180deg, #2f2a26 0%, #1f1c18 100%) !important;
+        color: #faf8f5 !important;
+      }
+
+      .dark-panel * {
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .dark-panel .dark-lead {
+        color: #e7e5e4 !important;
+      }
+
+      .dark-panel .dark-text {
+        color: #d6d3d1 !important;
+      }
+
+      .dark-panel .dark-chip {
+        color: #d6c4a8 !important;
+      }
+
+      .dark-panel .dark-title {
+        color: #faf8f5 !important;
+      }
+
+      .dark-panel .dark-quote {
+        color: #faf8f5 !important;
+      }
+
+      .dark-panel .dark-code {
+        color: #d6c4a8 !important;
+      }
+
+      .iteration-card,
+      .iteration-card * {
+        color: #faf8f5 !important;
+        border-color: rgba(255, 255, 255, 0.14) !important;
+      }
+
+      .iteration-card .iteration-label {
+        color: #d6c4a8 !important;
+      }
+
+      .btn.primary,
+      .btn {
+        background: var(--wcag-paper) !important;
+        color: var(--wcag-text) !important;
+        border-color: var(--wcag-border) !important;
+      }
+
+      .btn.primary {
+        background: var(--wcag-accent) !important;
+        color: var(--wcag-accent-contrast) !important;
+        border-color: rgba(41, 37, 36, 0.35) !important;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        width: auto;
+        max-width: max-content;
+        gap: 8px;
+        padding: 9px 14px;
+        border-radius: var(--pill);
+        background: var(--iwab-brand-blue-soft) !important;
+        border: 1px solid var(--iwab-brand-blue-border) !important;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--iwab-brand-blue) !important;
+        letter-spacing: 0.02em;
+        margin-bottom: 1rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-top: 0;
+        color: var(--wcag-text);
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: clamp(2.8rem, 6vw, 5.15rem);
+        line-height: 0.93;
+        letter-spacing: -0.07em;
+        font-weight: 800;
+      }
+
+      .hero h1 span {
+        display: block;
+      }
+
+      .hero h1 .soft {
+        color: #57534e !important;
+        font-weight: 300;
+        font-size: clamp(1.7rem, 3vw, 2.75rem);
+        line-height: 1.14;
+        margin-top: 1.125rem;
+        letter-spacing: -0.04em;
+      }
+
+      h2 {
+        font-weight: 700;
+      }
+
+      h3 {
+        font-weight: 600;
+      }
+
+      p {
+        font-weight: 400;
+        color: var(--text-body);
+      }
+
+      .hero-card .lead {
+        max-width: 620px;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: var(--text-body);
+      }
+
+      .hero-card .lead:first-of-type {
+        margin-top: 1.5rem;
+        margin-bottom: 1.15rem;
+      }
+
+      .hero-card .lead + .lead {
+        margin-top: 0;
+        margin-bottom: 1.15rem;
+      }
+
+      .hero-detail-link-wrap {
+        margin: 1.5rem 0 0;
+      }
+
+      .hero-detail-link {
+        display: inline-flex;
+        align-items: center;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        font-weight: 700;
+        color: var(--wcag-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1.5px;
+      }
+
+      .hero-detail-link:hover {
+        color: var(--wcag-accent-hover);
+      }
+
+      .hero-detail-link:focus-visible {
+        outline: 3px solid var(--wcag-text);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      .meta-label {
+        margin: 0 0 10px;
+        font-size: 0.76rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--wcag-ink);
+      }
+
+      .stat-title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #5c574f;
+      }
+
+      .stat-text {
+        margin: 6px 0 0;
+        color: #6b6560;
+        line-height: 1.75;
+        font-size: 0.95rem;
+        font-weight: 400;
+      }
+
+      .project-foundation .stat-block .meta-label {
+        color: var(--wcag-ink) !important;
+        font-weight: 800;
+      }
+
+      .project-foundation .stat-block .stat-title {
+        color: #5c574f !important;
+        font-weight: 500;
+      }
+
+      .project-foundation .stat-block .stat-text {
+        color: #6b6560 !important;
+        font-weight: 400;
+      }
+
+      .project-overview-title {
+        font-size: 1.15rem;
+        margin: 6px 0 10px;
+      }
+
+      .project-overview-text {
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin: 0;
+        color: var(--wcag-muted);
+      }
+
+      .hero-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+        min-width: 0;
+        padding-block: 4px;
+      }
+
+      .hero-media .project-hero-image {
+        width: min(100%, 390px);
+        height: auto;
+        margin-inline: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+        display: block;
+      }
+
+      .panel-title {
+        margin: 0 0 16px;
+        font-size: 1.3rem;
+        letter-spacing: -0.03em;
+      }
+
+      .timeline-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 58px;
+      }
+
+      .timeline-month {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #000000;
+        letter-spacing: 0.02em;
+      }
+
+      .timeline-year {
+        margin: 4px 0 0;
+        font-size: 0.75rem;
+        color: #000000;
+      }
+
+      .timeline-line {
+        flex: 1;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #c4b8a8, #a8a09a);
+        opacity: 0.85;
+      }
+
+      .responsibilities-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      .mini-glass {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(17, 17, 17, 0.06);
+        border-radius: 20px;
+        padding: 18px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .mini-heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .mini-heading h3,
+      .mini-heading h4 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .mini-accent {
+        width: 8px;
+        height: 28px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #a8a09a 0%, #78716c 100%);
+        flex-shrink: 0;
+      }
+
+      .role-list {
+        margin: 0;
+        padding-left: 1.2rem;
+        list-style: disc;
+        color: var(--wcag-muted);
+        line-height: 1.65;
+        font-size: 0.92rem;
+      }
+
+      .role-list li {
+        margin-bottom: 10px;
+      }
+
+      .role-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .shared-text {
+        margin: 0;
+        color: var(--wcag-muted);
+        line-height: 1.7;
+        font-size: 0.94rem;
+      }
+
+      .section-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #000000;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 3vw, 2.85rem);
+        letter-spacing: -0.045em;
+        line-height: 1.04;
+      }
+
+      .section-intro {
+        max-width: 760px;
+        color: var(--wcag-muted);
+        line-height: 1.82;
+        margin: 0 0 28px;
+        font-size: 1rem;
+      }
+
+      .section-intro.ideation-intro > p:first-child {
+        margin: 0 0 14px;
+      }
+
+      .ideation-process-list {
+        margin: 0;
+        padding-left: 1.3rem;
+        list-style: disc;
+        color: var(--wcag-text);
+      }
+
+      .ideation-process-list li {
+        margin-bottom: 16px;
+      }
+
+      .ideation-process-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .ideation-process-list strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .section-block {
+        margin-top: 28px;
+      }
+
+      .glass-card {
+        background: var(--wcag-paper);
+        backdrop-filter: blur(10px) saturate(115%);
+        -webkit-backdrop-filter: blur(10px) saturate(115%);
+        border: 1px solid var(--wcag-border);
+        border-radius: var(--radius-lg);
+        padding: 26px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .project-foundation .foundation-card.glass-card {
+        box-shadow: 0 6px 22px rgba(17, 24, 39, 0.06);
+      }
+
+      .project-foundation .mini-glass {
+        box-shadow: 0 4px 14px rgba(17, 24, 39, 0.05);
+        border-radius: var(--radius-md);
+      }
+
+      .soft-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(245, 238, 224, 0.55) 100%
+        );
+      }
+
+      .soft-purple {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(237, 231, 218, 0.65) 100%
+        );
+      }
+
+      .soft-pink {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(242, 235, 225, 0.62) 100%
+        );
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .headline-panel {
+        padding: 10px 6px 0;
+      }
+
+      .headline-panel h3 {
+        margin: 0 0 18px;
+        font-size: 2rem;
+        letter-spacing: -0.03em;
+      }
+
+      .headline-panel p {
+        margin: 0;
+        max-width: 900px;
+        font-size: 1.06rem;
+        line-height: 1.84;
+        color: var(--wcag-muted);
+      }
+
+      .mini-card {
+        padding: 18px;
+      }
+
+      .mini-card p {
+        margin: 0;
+        color: var(--wcag-muted);
+        line-height: 1.66;
+        font-size: 0.95rem;
+      }
+
+      .image-placeholder {
+        min-height: 420px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.97) 0%,
+          rgba(245, 238, 224, 0.5) 100%
+        );
+        border: 1px solid var(--wcag-border);
+      }
+
+      .image-placeholder span {
+        color: #000000;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 1.05rem;
+        max-width: 760px;
+      }
+
+      .placeholder-stack {
+        padding: 28px;
+      }
+
+      .figure-note {
+        margin: 18px 0 0;
+        text-align: center;
+        color: var(--wcag-muted);
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .figure-note a {
+        color: var(--wcag-accent);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        text-transform: none;
+        letter-spacing: normal;
+        font-weight: 700;
+      }
+
+      .figure-note a:hover {
+        opacity: 0.88;
+      }
+
+      .gallery-image {
+        width: 100%;
+        border-radius: 24px;
+        border: 1px solid rgba(17, 17, 17, 0.06);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+        background: #fff;
+      }
+
+      .image-card {
+        padding: 18px;
+        overflow: hidden;
+      }
+
+      .image-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 24px;
+      }
+
+      .wireframe-grid .wireframe-card img {
+        background: #fff;
+      }
+
+      .persona-case-card {
+        padding: 28px;
+      }
+
+      .persona-top-note {
+        margin: 0 0 18px;
+        font-size: 0.9rem;
+        color: #000000;
+        line-height: 1.6;
+      }
+
+      .persona-stage {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(17, 17, 17, 0.04);
+        border: 1px solid rgba(17, 17, 17, 0.06);
+        border-radius: 18px;
+        padding: 16px 18px;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 28px;
+      }
+
+      .persona-stage-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(17, 17, 17, 0.14);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #000000;
+        background: #fff;
+      }
+
+      .persona-name {
+        margin: 0 0 34px;
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        font-weight: 500;
+        color: #000000;
+      }
+
+      .persona-grid-custom {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+
+      .persona-panel {
+        padding-top: 22px;
+        border-top: 4px solid rgba(120, 113, 108, 0.25);
+      }
+
+      .persona-panel h4 {
+        margin: 0 0 18px;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #000000;
+      }
+
+      .persona-panel ul {
+        margin: 0;
+        padding-left: 22px;
+        color: var(--wcag-muted);
+        line-height: 1.9;
+      }
+
+      .persona-panel li {
+        margin-bottom: 8px;
+      }
+
+      .persona-quote-panel blockquote {
+        margin: 0;
+        padding: 18px 20px;
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--wcag-muted);
+        font-weight: 500;
+        border-left: 3px solid rgba(168, 162, 154, 0.65);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92) 0%,
+          rgba(245, 238, 224, 0.42) 100%
+        );
+        border-radius: 18px;
+      }
+
+      .persona-grid-custom .persona-panel:nth-child(4) {
+        grid-column: 1 / 3;
+      }
+
+      .persona-grid-custom .persona-panel:nth-child(5) {
+        grid-column: 3 / 4;
+      }
+
+      .midfi-image img {
+        border-radius: 24px;
+      }
+
+      .hifi-block {
+        margin-top: 1.5rem;
+      }
+
+      .hifi-kicker {
+        margin: 0 0 1rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #000000;
+      }
+
+      .iteration-card {
+        margin-bottom: 1.5rem;
+        padding: 1.1rem 1.25rem;
+        border-radius: 18px;
+        background: linear-gradient(155deg, #34302c 0%, #252220 100%);
+        color: #faf8f5;
+        box-shadow: 0 14px 36px rgba(28, 25, 22, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .iteration-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1.15rem;
+        line-height: 1.25;
+        color: #ffffff;
+      }
+
+      .iteration-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.65;
+      }
+
+      .iteration-label {
+        margin: 0 0 0.45rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #d6c4a8;
+      }
+
+      .iteration-list {
+        margin: 14px 0 0;
+        padding-left: 20px;
+        color: rgba(255, 255, 255, 0.92);
+        line-height: 1.75;
+      }
+
+      .hifi-pair {
+        display: grid;
+        grid-template-columns: 1.5fr 0.9fr;
+        gap: 1.25rem;
+        align-items: start;
+      }
+
+      .hifi-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+
+      .hifi-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hifi-item img,
+      .small-side-image {
+        width: 100%;
+        display: block;
+        border-radius: 18px;
+      }
+
+      .hifi-item-large img {
+        min-height: 280px;
+        object-fit: contain;
+        background: transparent;
+      }
+
+      .hifi-item-small img {
+        max-width: 260px;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+      }
+
+      .hifi-item .figure-note {
+        margin-top: 0.8rem;
+        font-size: 0.98rem;
+        line-height: 1.55;
+        color: #000000;
+      }
+
+      .hifi-contact-single img {
+        width: 100%;
+        border-radius: 18px;
+      }
+
+      .dark-panel {
+        margin-top: 40px;
+        padding: 34px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(180deg, #2f2a26 0%, #1f1c18 100%);
+        box-shadow: 0 24px 64px rgba(28, 25, 22, 0.14);
+        color: #faf8f5;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .dark-chip {
+        color: #d6c4a8;
+      }
+
+      .dark-title {
+        margin: 0 0 22px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: -0.04em;
+        color: #fff;
+      }
+
+      .dark-grid {
+        align-items: center;
+      }
+
+      .dark-lead {
+        margin: 0 0 14px;
+        font-size: 1.4rem;
+        line-height: 1.4;
+        color: #e7e5e4;
+        font-weight: 600;
+      }
+
+      .dark-text {
+        margin: 0;
+        color: #d6d3d1;
+        line-height: 1.85;
+        font-size: 1rem;
+      }
+
+      .dark-quote-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 24px;
+        border-radius: 24px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dark-code {
+        margin: 0 0 8px;
+        color: #d6c4a8;
+        font-size: 0.9rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .dark-quote {
+        margin: 0;
+        color: #fff;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        font-style: italic;
+      }
+
+      .final-design-panel {
+        padding: 30px 22px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(250, 246, 238, 0.92) 100%
+        );
+        border-radius: 14px;
+        border: 1px solid var(--wcag-border);
+      }
+
+      .final-grid {
+        display: grid;
+        grid-template-columns: minmax(520px, 1fr) 620px;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .final-grid > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0 12px;
+      }
+
+      .desktop-note {
+        text-align: left;
+      }
+
+      .desktop-frame {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        overflow: visible;
+      }
+
+      .desktop-image {
+        display: block;
+        width: 100%;
+        max-width: 680px;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+      }
+
+      .mobile-shell {
+        max-width: 420px;
+        margin: 0 auto;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .mobile-screen {
+        position: relative;
+        border-radius: 0;
+        overflow: visible;
+        background: transparent;
+      }
+
+      .mobile-image {
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        object-fit: contain;
+      }
+
+      .mobile-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .mobile-col .figure-note {
+        text-align: center;
+      }
+
+      .footer-space {
+        height: 44px;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1180px) {
+        .container {
+          width: min(var(--max), calc(100% - 160px));
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+
+        .side-nav {
+          position: sticky;
+          top: var(--toc-sticky-top);
+          z-index: 50;
+          align-self: start;
+          order: -1;
+          max-height: none;
+          overflow-y: visible;
+          overflow-x: visible;
+          padding-right: 0;
+        }
+
+        .toc-card {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          max-width: 100%;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+        }
+
+        .toc-list {
+          display: flex;
+          gap: 8px;
+          min-width: max-content;
+        }
+
+        .toc-list a {
+          white-space: nowrap;
+        }
+
+        .hero-card,
+        .final-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .hero-media {
+          order: -1;
+        }
+
+        .foundation-row--basics,
+        .foundation-row--split {
+          grid-template-columns: 1fr !important;
+        }
+
+        .grid-3,
+        .grid-2,
+        .responsibilities-grid,
+        .persona-grid-custom,
+        .hifi-pair,
+        .hifi-grid-2 {
+          grid-template-columns: 1fr !important;
+        }
+
+        .full-width,
+        .persona-grid-custom .persona-panel:nth-child(4),
+        .persona-grid-custom .persona-panel:nth-child(5) {
+          grid-column: auto;
+        }
+
+        .final-grid > div {
+          padding: 6px 0;
+        }
+
+        .desktop-frame,
+        .mobile-shell {
+          width: 100%;
+        }
+
+        .desktop-image,
+        .mobile-image {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .persona-name {
+          text-align: left;
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 760px) {
+        :root {
+          --section-space: 34px;
+          --topbar-height: 8.75rem;
+        }
+
+        .container {
+          width: min(var(--max), 100%);
+        }
+
+        .content-main {
+          overflow-x: hidden;
+        }
+
+        #main-content .toc-scroll-track .toc-list {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 10px !important;
+          min-width: max-content !important;
+          width: max-content !important;
+        }
+
+        #main-content .toc-scroll-track .toc-list a {
+          white-space: nowrap !important;
+          word-break: normal !important;
+        }
+
+        .toc-card {
+          overflow: visible;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+        }
+
+        .nav {
+          min-height: auto;
+          padding: 14px 0;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-card,
+        .glass-card,
+        .dark-panel,
+        .persona-case-card {
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: 2.45rem;
+        }
+
+        .hero h1 .soft {
+          font-size: 1.32rem;
+        }
+
+        .lead,
+        .section-intro {
+          font-size: 1rem;
+        }
+
+        .timeline-flow {
+          gap: 10px;
+          padding: 16px 12px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .timeline-step {
+          min-width: 40px;
+        }
+
+        .image-placeholder {
+          min-height: 280px;
+        }
+
+        .persona-stage {
+          padding: 14px 16px;
+        }
+
+        .persona-name {
+          margin-bottom: 24px;
+          font-size: 1.9rem;
+        }
+
+        .hifi-item-small img {
+          max-width: 180px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .container {
+          width: min(var(--max), 100%);
+        }
+
+        .hero-card,
+        .glass-card,
+        .dark-panel,
+        .persona-case-card {
+          padding: 16px;
+        }
+
+        h1 {
+          font-size: clamp(1.75rem, 8.5vw, 2.2rem);
+        }
+      }
+
+      .persona-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .persona-image img {
+        width: min(300px, 88vw);
+        height: min(300px, 88vw);
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+
+
+    </style>
+    <link rel="stylesheet" href="topbar-shared.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="casestudy-mobile.css" />
+    <style id="iwab-ui-polish">
+      /* Light glass topbar — harmonizes with warm off-white page */
+      body.case-study-iwab .topbar {
+        background: rgba(247, 244, 239, 0.8) !important;
+        border-bottom: 1px solid rgba(87, 83, 78, 0.12) !important;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.85),
+          0 10px 28px rgba(41, 37, 36, 0.05) !important;
+        backdrop-filter: blur(18px) saturate(1.35) !important;
+        -webkit-backdrop-filter: blur(18px) saturate(1.35) !important;
+      }
+
+      body.case-study-iwab .topbar .brand {
+        color: var(--wcag-ink, #292524) !important;
+      }
+
+      body.case-study-iwab .topbar .brand-name {
+        color: #292524 !important;
+      }
+
+      body.case-study-iwab .topbar .brand-portfolio {
+        color: var(--accent-warm, #ff8c00) !important;
+        opacity: 1 !important;
+      }
+
+      body.case-study-iwab .topbar .nav-back {
+        color: #292524 !important;
+        border: none !important;
+      }
+
+      body.case-study-iwab .topbar .nav-back:hover {
+        background: var(--iwab-brand-blue-soft, rgba(42, 74, 110, 0.13)) !important;
+        color: var(--iwab-brand-blue, #2a4a6e) !important;
+      }
+
+      /* Desktop sidebar TOC — same plain links as newmom (no pill highlight) */
+      @media (min-width: 1181px) {
+        body.case-study-iwab #main-content .toc-card,
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a,
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a:visited {
+          display: block !important;
+          padding: 8px 0 !important;
+          border-radius: 0 !important;
+          white-space: normal !important;
+          word-break: normal !important;
+          color: #57534e !important;
+          opacity: 1 !important;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a:hover,
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a.active {
+          background: transparent !important;
+          border: none !important;
+          color: #111111 !important;
+          font-weight: 700 !important;
+          opacity: 1 !important;
+        }
+      }
+
+      /* Horizontal TOC: fade + clip pills at viewport edge */
+      @media (max-width: 1180px) {
+        body.case-study-iwab #main-content > .container.layout {
+          overflow: visible !important;
+        }
+
+        body.case-study-iwab #main-content .side-nav {
+          position: sticky;
+          width: 100vw;
+          max-width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          padding-left: max(var(--case-study-page-gutter), env(safe-area-inset-left, 0px));
+          padding-right: 0;
+          box-sizing: border-box;
+        }
+
+        body.case-study-iwab #main-content .toc-card {
+          padding-right: 0;
+          max-width: none;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-hint {
+          display: flex !important;
+          justify-content: flex-end;
+          padding-right: max(var(--case-study-page-gutter), env(safe-area-inset-right, 0px));
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track {
+          width: 100%;
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x proximity;
+          padding-bottom: 10px;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(42, 74, 110, 0.35) transparent;
+          -webkit-mask-image: linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 40px),
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 40px),
+            transparent 100%
+          );
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 10px !important;
+          width: max-content !important;
+          min-width: max-content !important;
+          padding-right: 1.25rem !important;
+          margin: 0 !important;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list li {
+          flex: 0 0 auto !important;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a {
+          display: inline-block !important;
+          white-space: nowrap !important;
+          padding: 9px 14px !important;
+          scroll-snap-align: start;
+          background: rgba(17, 17, 17, 0.06) !important;
+          border: 1px solid #111111 !important;
+          color: #111111 !important;
+        }
+
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a:hover,
+        body.case-study-iwab #main-content .toc-scroll-track .toc-list a.active {
+          background: rgba(17, 17, 17, 0.12) !important;
+          border-color: #111111 !important;
+          color: #111111 !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="case-study-mobile case-study-iwab">
+    <header class="topbar">
+      <div class="topbar-inner topbar-inner--case">
+        <div class="nav-start">
+          <button
+            type="button"
+            class="nav-back"
+            aria-label="Tillbaka till föregående sida"
+            onclick="history.back()"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+          <a
+            class="brand"
+            href="homepage.html#home"
+            aria-label="Ida Kilander – startsida"
+          >
+            <span class="brand-name">Ida Kilander</span>
+            <span class="brand-portfolio">Portfolio</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-card fade-up">
+            <div class="foundation-intro">
+              <div class="eyebrow">Case study · Startup launch</div>
+
+              <h1 id="hero-title">
+                <span>Ivrell Wallsten AB</span>
+                <span class="soft">A complete website design built from scratch</span>
+              </h1>
+
+              <p class="lead">
+                A comprehensive UX project where me and my project partner designed a complete website from scratch.
+              </p>
+              <p class="lead">
+                By following a user-centered design process we transformed the firm's lack of digital presence into a professional, high-fidelity web experience.
+              </p>
+
+              <p class="hero-detail-link-wrap">
+                <a
+                  class="hero-detail-link"
+                  href="https://gamma.app/docs/Copy-of-Team-Outlook-ts8s5rkab8vp4on"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View detailed case study (opens Gamma presentation in a new tab)"
+                >View detailed case study →</a>
+              </p>
+            </div>
+
+            <div class="hero-media">
+              <img
+                src="startiwab.png"
+                alt="Projektbild för Ivrell Wallsten AB"
+                class="project-hero-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container layout">
+        <aside class="side-nav" aria-label="Case study navigation">
+          <nav class="toc-card">
+            <p class="toc-label">On this page</p>
+            <p class="toc-scroll-hint" aria-hidden="true">
+              <span class="toc-scroll-arrow">→</span>
+            </p>
+            <div class="toc-scroll-track" tabindex="0" aria-label="Avsnitt på sidan, svep horisontellt">
+              <ul class="toc-list">
+                <li><a href="#top">Overview</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#persona">Persona</a></li>
+                <li><a href="#ideation">Ideation</a></li>
+                <li><a href="#sketches">Sketches</a></li>
+                <li><a href="#ia">Information Architecture</a></li>
+                <li><a href="#userflow">User Flow</a></li>
+                <li><a href="#lofi">Low Fidelity</a></li>
+                <li><a href="#usability-low">Usability Test</a></li>
+                <li><a href="#midfi">Mid Fidelity</a></li>
+                <li><a href="#usability-mid">Usability Test 2</a></li>
+                <li><a href="#designsystem">Design System</a></li>
+                <li><a href="#first-hi-fi">First high fidelity</a></li>
+                <li><a href="#final-test">Final Usability Test</a></li>
+                <li><a href="#final-wireframes">Final wireframes</a></li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <div class="content-main">
+          <section
+            class="project-foundation"
+            id="project-foundation"
+            aria-labelledby="foundation-title"
+          >
+              <h2 id="foundation-title" class="section-title">Project foundation</h2>
+
+              <div class="foundation-row foundation-row--basics">
+                <article class="foundation-card glass-card soft-card stat-block">
+                  <p class="meta-label">Role</p>
+                  <p class="stat-title">UX Designer</p>
+                  <p class="stat-text">Team: Ida Kilander & Josephine Mörner</p>
+                </article>
+
+                <article class="foundation-card glass-card soft-card stat-block">
+                  <p class="meta-label">Scope</p>
+                  <p class="stat-title">Website Design</p>
+                </article>
+
+                <article class="foundation-card glass-card soft-card stat-block">
+                  <p class="meta-label">Focus</p>
+                  <p class="stat-title">Clarity & Trust</p>
+                </article>
+              </div>
+
+              <div class="foundation-row foundation-row--timeline">
+                <article class="foundation-card glass-card soft-card timeline-panel-full">
+                  <h2 class="panel-title">Timeline</h2>
+
+                  <div class="timeline-flow">
+                    <div class="timeline-step">
+                      <p class="timeline-month">Dec</p>
+                      <p class="timeline-year">2025</p>
+                    </div>
+
+                    <div class="timeline-line" aria-hidden="true"></div>
+
+                    <div class="timeline-step">
+                      <p class="timeline-month">Jan</p>
+                      <p class="timeline-year">2026</p>
+                    </div>
+
+                    <div class="timeline-line" aria-hidden="true"></div>
+
+                    <div class="timeline-step">
+                      <p class="timeline-month">Feb</p>
+                      <p class="timeline-year">2026</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="foundation-row foundation-row--split">
+                <div class="foundation-col foundation-col--left">
+                  <article class="foundation-card glass-card soft-card narrative-card">
+                    <div class="narrative-block">
+                      <p class="meta-label">Overview</p>
+                      <h3 class="project-overview-title">Project Overview</h3>
+                      <p class="project-overview-text">
+                        This project focused on designing a new website for Ivrell Wallsten AB (IWAB), a startup consulting
+                        firm specializing in marketing and sales.
+                      </p>
+                    </div>
+
+                    <div class="narrative-block">
+                      <h3>The Challenge</h3>
+                      <p>
+                        Potential clients often experience uncertainty when searching for consultants.
+                        Research indicated that users frequently abandon websites due to unclear service descriptions,
+                        lack of pricing transparency, and weak trust signals.
+                      </p>
+                    </div>
+
+                    <div class="narrative-block">
+                      <h3>The Goal</h3>
+                      <p>
+                        Build a digital presence that addresses common challenges users face when evaluating consulting
+                        services online, such as lack of transparency and trust.
+                      </p>
+                    </div>
+
+                    <div class="narrative-block">
+                      <h3>The Outcome</h3>
+                      <p>
+                        A clean website concept with strong visual hierarchy, clear content structure,
+                        and a professional overall impression.
+                      </p>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="foundation-col foundation-col--right">
+                  <section class="foundation-card glass-card soft-card responsibilities-panel" aria-labelledby="resp-title">
+                    <h2 id="resp-title" class="panel-title">Project Responsibilities</h2>
+
+                    <div class="responsibilities-grid">
+                      <article class="mini-glass">
+                        <div class="mini-heading">
+                          <span class="mini-accent" aria-hidden="true"></span>
+                          <h3>Ida – Responsibilities</h3>
+                        </div>
+                        <ul class="role-list">
+                          <li>Mind Mapping</li>
+                          <li>Competitive Analysis</li>
+                          <li>Problem Statement</li>
+                          <li>Information Architecture</li>
+                          <li>Mid-Fidelity Usability Testing</li>
+                        </ul>
+                      </article>
+
+                      <article class="mini-glass">
+                        <div class="mini-heading">
+                          <span class="mini-accent" aria-hidden="true"></span>
+                          <h3>Josephine – Responsibilities</h3>
+                        </div>
+                        <ul class="role-list">
+                          <li>Literature Review</li>
+                          <li>User Personas</li>
+                          <li>Low fidelity wireframes</li>
+                          <li>Low-Fidelity Usability Testing</li>
+                          <li>Design system</li>
+                        </ul>
+                      </article>
+                    </div>
+                  </section>
+
+                  <article class="foundation-card glass-card soft-card shared-panel" aria-labelledby="shared-resp-title">
+                    <h2 id="shared-resp-title" class="panel-title">Shared Responsibilities</h2>
+                    <p class="shared-text">
+                      Research, ideation, wireframing, prototyping, usability testing, accessibility considerations, and final design improvements were carried out together throughout the project.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+          <section id="process" aria-labelledby="process-title">
+            <div class="section-chip">Design process</div>
+            <h2 class="section-title fade-up" id="process-title">Process</h2>
+            <p class="section-intro fade-up">
+              A structured research and design process shaped the final direction of the website and helped translate business needs into a clearer digital experience.
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="headline-panel">
+                <h3>Research & Insights</h3>
+                <p>
+                  We conducted a comprehensive research phase involving 5 semi-structured interviews with small business owners, a literature review, and a competitive analysis of 4 industry players.
+                </p>
+              </div>
+
+              <div class="grid-3 section-block">
+                <article class="glass-card mini-card soft-pink">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Trust Factors</h4>
+                  </div>
+                  <p>Trust is driven by concrete evidence, case studies and measurable outcomes.</p>
+                </article>
+
+                <article class="glass-card mini-card soft-pink">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Conversion</h4>
+                  </div>
+                  <p>Short & simple contact forms reduce friction and convert better, especially with multiple options.</p>
+                </article>
+
+                <article class="glass-card mini-card soft-pink">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Transparency</h4>
+                  </div>
+                  <p>Users need price indications to reduce uncertainty.</p>
+                </article>
+              </div>
+
+              <div class="glass-card image-placeholder section-block">
+                <img src="ideationivrell.png" alt="Research and insights visualisering för Ivrell Wallsten AB" />
+                <p class="figure-note">
+                  <a href="https://miro.com/app/board/uXjVJhUPMEk=/" target="_blank" rel="noopener noreferrer">link to workshop</a>
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <section id="persona" aria-labelledby="persona-title">
+            <div class="section-chip">User understanding</div>
+            <h2 class="section-title fade-up" id="persona-title">The Persona</h2>
+            <p class="section-intro fade-up">
+              Based on our research, we identified two distinct personas. To ensure a focused and impactful solution, we prioritized our primary persona: Anna Larsson, a 38-year-old SME owner, whose needs guided our core design decisions
+            </p>
+
+            <article class="glass-card soft-card fade-up persona-case-card">
+              <p class="persona-top-note">
+                Personas were checked against interview patterns / reviewed with participants
+              </p>
+
+              <div class="persona-stage">
+                <span class="persona-stage-icon">i</span>
+                <span>Define stage</span>
+              </div>
+
+              <h3 class="persona-name">Anna Larsson - Primary Persona</h3>
+              <div class="persona-image">
+  <img src="persona-anna.png.jpg" alt="Persona Anna Larsson" />
+</div>
+
+              <div class="persona-grid-custom">
+                <div class="persona-panel">
+                  <h4>Profile</h4>
+                  <ul>
+                    <li>Gender: Female</li>
+                    <li>Age: 38</li>
+                    <li>Role: Owner / Managing Director</li>
+                    <li>Location: Stockholm City</li>
+                    <li>Company size: 7-10 employees</li>
+                  </ul>
+                </div>
+
+                <div class="persona-panel persona-quote-panel">
+                  <h4>Quote</h4>
+                  <blockquote>
+                    "I need clarity and trust before I decide to reach out."
+                  </blockquote>
+                </div>
+
+                <div class="persona-panel">
+                  <h4>Goals</h4>
+                  <ul>
+                    <li>Quickly understand relevant services.</li>
+                    <li>Assess consultant experience with SMEs.</li>
+                    <li>Understand collaboration and pricing.</li>
+                    <li>Avoid aggressive sales follow-ups.</li>
+                  </ul>
+                </div>
+
+                <div class="persona-panel">
+                  <h4>Pain Points</h4>
+                  <ul>
+                    <li>Unclear service descriptions and pricing.</li>
+                    <li>"Fluffy" language without concrete outcomes.</li>
+                    <li>Lack of trust signals (case studies/results).</li>
+                    <li>Impersonal websites or complex forms.</li>
+                  </ul>
+                </div>
+
+                <div class="persona-panel">
+                  <h4>Needs</h4>
+                  <ul>
+                    <li>Clear information and plain language.</li>
+                    <li>Visible trust signals and proof of results.</li>
+                    <li>Calm, transparent conversion path.</li>
+                    <li>Accessible, mobile-friendly experience.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="ideation" aria-labelledby="ideation-title">
+            <div class="section-chip">From insights to ideas</div>
+            <h2 class="section-title fade-up" id="ideation-title">Ideation</h2>
+            <div class="section-intro ideation-intro fade-up">
+              <p>
+                We applied a structured process to translate research insights into concrete design solutions:
+              </p>
+              <ul class="ideation-process-list">
+                <li>
+                  <strong>Divergent Exploration:</strong>
+                  How Might We (HMW) questions were used to frame challenges as opportunities for innovation, followed by brainstorming and mind mapping to generate a broad range of ideas.
+                </li>
+                <li>
+                  <strong>Prioritization &amp; Selection:</strong>
+                  Through Dot Voting and the NUF method (New, Useful, Feasible), we prioritized our ideas and developed three distinct concepts: The Proof-First Consultant, The Strategic Guide (selected concept), and The Performance Engine.
+                </li>
+                <li>
+                  <strong>Structure &amp; Requirements:</strong>
+                  Website requirements were categorized using MoSCoW prioritization (Must, Should, Could, Won’t have), while an intuitive Information Architecture (IA) was established through Card Sorting.
+                </li>
+                <li>
+                  <strong>Visual Direction:</strong>
+                  A moodboard was developed to establish a visual identity that balances professionalism with technological expertise.
+                </li>
+              </ul>
+            </div>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="glass-card image-placeholder">
+                <div class="placeholder-stack">
+                     <img src="ideation.ivrell.jpg" alt= "ideation Ivrell Wallsten AB" />
+             
+                  <p class="figure-note">Visualizing the creative process</p>
+                  <p class="figure-note">
+                    <a href="https://miro.com/app/board/uXjVJhUPMEk=/" target="_blank" rel="noopener noreferrer">link to workshop</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="sketches" aria-labelledby="sketches-title">
+            <div class="section-chip">Early exploration</div>
+            <h2 class="section-title fade-up" id="sketches-title">Sketches & Concept</h2>
+            <p class="section-intro fade-up">
+              Early sketches on the three different website concepts were used to quickly explore layout ideas and user journeys. <br />
+              The chosen ( the strategic guide) focuses on clarity, credibility, and strategic storytelling. The website presents IWAB’s services in a structured way while highlighting case studies to build trust and guide users toward booking a consultation.
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="concepts.png" alt="Concept sketches and early layout ideas for Ivrell Wallsten AB" />
+                <p class="figure-note">Early conceptual wireframes and layout explorations</p>
+              </div>
+            </article>
+          </section>
+
+          <section id="ia" aria-labelledby="ia-title">
+            <div class="section-chip">Structure</div>
+            <h2 class="section-title fade-up" id="ia-title">Information Architecture</h2>
+            <p class="section-intro fade-up"></p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="IAivrell.png.jpg" alt="Information architecture diagram för Ivrell Wallsten AB" />
+                <p class="figure-note">Mapping the user journey through content hierarchy</p>
+              </div>
+            </article>
+          </section>
+
+          <section id="userflow" aria-labelledby="flow-title">
+            <div class="section-chip">Navigation paths</div>
+            <h2 class="section-title fade-up" id="flow-title">User Flow</h2>
+
+            <p class="section-intro fade-up">
+              Task flows and user flows were defined to validate navigation logic before creating wireframes.
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="grid-2">
+                <div class="image-card">
+                  <img src="userflow.ivrell.png" alt="User flow för Ivrell Wallsten AB" />
+                </div>
+
+                <div class="image-card">
+                  <img src="taskflow.ivrell.png" alt="Task flow för Ivrell Wallsten AB" />
+                  <p class="figure-note">Task flows</p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="lofi" aria-labelledby="lofi-title">
+            <div class="section-chip">Wireframing</div>
+            <h2 class="section-title fade-up" id="lofi-title">Low Fidelity Wireframes</h2>
+            <p class="section-intro fade-up">
+              Low fidelity wireframes were created to explore layout ideas and organize the websites content structure.
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="grid-3 wireframe-grid">
+                <div class="image-card wireframe-card">
+                  <img src="homepagelow.png" alt="Low fidelity homepage wireframe for Ivrell Wallsten" />
+                  <p class="figure-note">Homepage wireframe</p>
+                </div>
+
+                <div class="image-card wireframe-card">
+                  <img src="serviceslow.png" alt="Low fidelity services page wireframe for Ivrell Wallsten" />
+                  <p class="figure-note">Services page wireframe</p>
+                </div>
+
+                <div class="image-card wireframe-card">
+                  <img src="contactpage.low.png" alt="Low fidelity contact page wireframe for Ivrell Wallsten" />
+                  <p class="figure-note">Contact page wireframe</p>
+                </div>
+              </div>
+              <p class="figure-note">Rapid prototyping: testing core layout and content placement</p>
+            </article>
+          </section>
+
+          <section id="usability-low" aria-labelledby="usability-low-title">
+            <div class="section-chip">Evaluation</div>
+            <h2 class="section-title fade-up" id="usability-low-title">Usability Test</h2>
+            <p class="section-intro fade-up">
+              We conducted early moderated "think-aloud" usability tests with four participants to validate the website’s structure and Information Architecture (IA) before moving to a more detailed design.
+              The primary goal was to ensure that navigation, service offerings, and contact paths were intuitive and logical.
+            </p>
+
+
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="usertest1bild.png" alt="Usability testing session for Ivrell Wallsten website" />
+                <p class="figure-note">Observing user behavior and identifying friction points</p>
+              </div>
+
+              <div class="grid-2 section-block">
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Results</h4>
+                  </div>
+                  <p>100% success rate with 16 out of 16 tasks completed successfully.</p>
+                </article>
+
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Insights</h4>
+                  </div>
+                  <p>Participants quickly understood IWAB’s offering and easily located "Services" and "Contact". The testing confirmed that the foundational structure functioned as intended without any critical navigation errors.</p>
+                </article>
+              </div>
+            </article>
+          </section>
+
+          <section id="midfi" aria-labelledby="midfi-title">
+            <div class="section-chip">Refinement</div>
+            <h2 class="section-title fade-up" id="midfi-title">Mid Fidelity Wireframes</h2>
+            <p class="section-intro fade-up">
+              After the first usability test, mid-fidelity prototypes were created.
+            </p>
+            <br /><strong> These prototypes introduced:</strong>
+
+            <ul>
+              <li>clearer content hierarchy</li>
+              <li>improved navigation</li>
+              <li>structured service pages</li>
+            </ul>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card midfi-image">
+                <img src="midfed.ivrell.png" alt="Mid fidelity prototype for Ivrell Wallsten website" />
+                <p class="figure-note">Mid fidelity prototype exploring layout structure and interaction flow</p>
+              </div>
+            </article>
+          </section>
+
+          <section id="usability-mid" aria-labelledby="usability-mid-title">
+            <div class="section-chip">Validation</div>
+            <h2 class="section-title fade-up" id="usability-mid-title">Usability Test</h2>
+            <p class="section-intro fade-up">
+              We conducted moderated think-aloud usability tests with five target users to validate the interaction logic and content placement in the mobile prototype. <br /><br />
+              <strong> Key sucsesses </strong> <br />
+              The before-and-after case studies were highly effective in building immediate trust with users. Participants quickly understood the value of the services, and service discovery worked well due to clear naming conventions and straightforward descriptions.
+              <br /><br />
+              <strong> Identified frictions</strong>
+            </p>
+            <ul>
+              <li>Users experienced scroll fatigue when navigating through long vertical service lists on mobile.</li>
+              <li>Some participants were uncertain about what happens after contacting the company, particularly regarding the onboarding process.</li>
+              <li>Users were also confused about the difference between the one-time setup cost and the ongoing monthly service pricing.</li>
+            </ul>.
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="usertest2mid .png" alt="Second usability testing round for Ivrell Wallsten website" />
+                <p class="figure-note">Final validation: ensuring a seamless user journey</p>
+              </div>
+
+              <div class="grid-2 section-block">
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Iterations</h4>
+                  </div>
+                  <p>Based on the insights from usability testing, several design improvements were implemented:</p>
+                  <ul>
+                    <li>
+                      <strong>Horizontal Carousel</strong><br />
+                      The mobile service section was redesigned into a horizontal carousel, making it easier to scan available services while reducing excessive scrolling.
+                    </li>
+                    <li>
+                      <strong>Clarified Homepage Positioning</strong><br />
+                      Additional cues were added to the homepage to clarify who IWAB is for, such as startups and small to medium-sized businesses.
+                    </li>
+                    <li>
+                      <strong>Improved Package Scope Transparency</strong><br />
+                      A short explanatory section was added to clarify:
+                      <ul>
+                        <li>What services are optional</li>
+                        <li>What services are ongoing</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Pricing Clarity</strong><br />
+                      Pricing was updated to clearly separate one-time setup costs from monthly service fees, making the pricing structure easier to understand.
+                    </li>
+                    <li>
+                      <strong>Improved Contact Flow</strong><br />
+                      The contact process was refined by introducing a selectable contact method and adapting the contact page based on the user’s chosen call-to-action.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Nexts steps</h4>
+                  </div>
+                  <p>Conduct a second round of usability testing using a high-fidelity prototype to validate the design changes.</p>
+                </article>
+              </div>
+            </article>
+          </section>
+
+          <section id="designsystem" aria-labelledby="designsystem-title">
+            <div class="section-chip">Foundation</div>
+            <h2 class="section-title fade-up" id="designsystem-title">Design System</h2>
+            <p class="section-intro fade-up">
+              To create a consistent and professional experience, we developed a scalable design system.
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="designsytemivrell.png" alt="Design system for Ivrell Wallsten AB website" />
+              </div>
+
+              <div class="grid-3 section-block">
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Typography</h4>
+                  </div>
+                  <p>We selected Inter typography for its high readability and a blue-toned palette to convey professionalism and technological expertise.</p>
+                </article>
+
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Component-Driven</h4>
+                  </div>
+                  <p>By building a library of reusable components, we achieved perfect consistency across all screens, from service packages to the contact flow</p>
+                </article>
+
+                <article class="glass-card mini-card soft-card">
+                  <div class="mini-heading">
+                    <span class="mini-accent"></span>
+                    <h4>Inclusive Design:</h4>
+                  </div>
+                  <p>We ensured high contrast levels, readable typography, and accessible button sizes across all devices to make the platform functional for everyon</p>
+                  <br />
+                  <p>All color palettes were meticulously validated via Webaim.com to guarantee they met international accessibility standards</p>
+                </article>
+              </div>
+            </article>
+          </section>
+
+          <section id="first-hi-fi" aria-labelledby="hifi-title">
+            <div class="section-chip">Visual design</div>
+            <h2 class="section-title fade-up" id="hifi-title">First high fidelity wireframes</h2>
+            <p class="section-intro fade-up">
+              These early high-fidelity wireframes translated our mid-fidelity structure into a more polished visual direction. Each iteration reflects changes made in response to usability findings.
+            </p>
+
+            <article class="glass-card soft-card fade-up hifi-block">
+              <p class="hifi-kicker">Some of the high-fidelity wireframes</p>
+
+              <div class="iteration-card">
+                <p class="iteration-label">Design iteration 01</p>
+                <h3>Clarifying who IWAB is for</h3>
+                <p>
+                  Based on usability feedback, we added clearer cues about who IWAB is for
+                  — startups and SMEs — to improve relevance and help users identify the
+                  offering more quickly.
+                </p>
+              </div>
+
+              <div class="hifi-pair">
+                <div class="hifi-item hifi-item-large">
+                  <img src="firsthighfidelity.png" class="gallery-image" alt="Landing page high fidelity wireframe for Ivrell Wallsten" />
+                  <p class="figure-note">Landing page wireframe showing initial design concepts.</p>
+                </div>
+
+                <div class="hifi-item hifi-item-small">
+                  <img src="whatwedo.png" class="small-side-image" alt="Mobile view of the What We Do section" />
+                  <p class="figure-note">Mobile-only view of the “What we do” section, emphasizing responsive design.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card soft-card fade-up hifi-block">
+              <div class="iteration-card">
+                <p class="iteration-label">Design iteration 02</p>
+                <h3>Reducing scroll fatigue on mobile</h3>
+                <p>
+                  User testing showed that the original mobile “Solutions” section created
+                  too much vertical scrolling. We redesigned it into a horizontal carousel
+                  and brought client cases earlier into the journey to improve engagement.
+                </p>
+              </div>
+
+              <div class="hifi-pair">
+                <div class="hifi-item hifi-item-large">
+                  <img src="first123.png" class="gallery-image" alt="Desktop view of the services section" />
+                  <p class="figure-note">Desktop view of the “Our Services” section.</p>
+                </div>
+
+                <div class="hifi-item hifi-item-large">
+                  <img src="first123.png" class="gallery-image" alt="Mobile carousel exploration for services" />
+                  <p class="figure-note">Mobile view showcasing the new horizontal carousel for services.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card soft-card fade-up hifi-block">
+              <div class="iteration-card">
+                <p class="iteration-label">Additional explored screens</p>
+                <h3>Building trust through proof and transparency</h3>
+                <p>
+                  Additional high-fidelity explorations focused on testimonials, selected
+                  cases, company information, and process transparency to make the website
+                  feel more concrete, trustworthy, and easy to understand.
+                </p>
+              </div>
+
+              <div class="hifi-grid-2">
+                <div class="hifi-item">
+                  <img src="first1234.png" class="gallery-image" alt="Testimonials section design" />
+                  <p class="figure-note">Dedicated to testimonials, this section builds trust by featuring feedback from our clients.</p>
+                </div>
+
+                <div class="hifi-item">
+                  <img src="first12345.png" class="gallery-image" alt="Selected cases section design" />
+                  <p class="figure-note">A curated view of our portfolio, highlighting key projects and their successful outcomes.</p>
+                </div>
+
+                <div class="hifi-item">
+                  <img src="first123456.png" class="gallery-image" alt="How we work section design" />
+                  <p class="figure-note">An in-depth look at our methodology and processes, offering transparency into our operations.</p>
+                </div>
+
+                <div class="hifi-item">
+                  <img src="about.iwab.png" class="gallery-image" alt="About page design" />
+                  <p class="figure-note">This page introduces our company, mission, and values, providing context for who we are.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card soft-card fade-up hifi-block">
+              <div class="iteration-card">
+                <p class="iteration-label">Design iteration 03</p>
+                <h3>Clarifying the contact process</h3>
+                <p>
+                  User testing revealed uncertainty about what happens after submitting the
+                  contact form. To improve clarity and reduce hesitation, the contact flow
+                  was refined with clearer expectations and better contextual guidance.
+                </p>
+
+                <ul class="iteration-list">
+                  <li>Added a post-submission section explaining what happens next.</li>
+                  <li>
+                    Implemented prefilled text in the field
+                    <em>“What can we help you with?”</em> based on the CTA users navigated from.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="hifi-contact-single">
+                <img src="getintouch.png" class="gallery-image" alt="Contact flow design" />
+                <p class="figure-note">
+                  The contact flow was refined with clearer expectations after form submission and better CTA continuity.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <section id="final-test" aria-labelledby="final-test-title">
+            <div class="section-chip">Final checks</div>
+            <h2 class="section-title fade-up" id="final-test-title">Final Usability Test</h2>
+            <p>
+              After completing mid-fidelity iterations, a final round of usability testing was conducted on the high-fidelity prototype. This phase
+              aimed to validate whether the design improvements successfully addressed core problems and reduced user hesitation before
+              development. <br />
+              Unlike earlier tests (focused on structure and information architecture), this round evaluated:
+            </p>
+            <ul>
+              <li>Clarity of communication</li>
+              <li>Service transparency</li>
+              <li>Perceived credibility</li>
+              <li>Emotional perception</li>
+              <li>Conversion confidence</li>
+            </ul>
+
+            <p>
+              Desktop testing was prioritised because:
+              SME decision-makers typically evaluate consulting services during work hours
+              Desktop provides a realistic professional context
+              Real-life consulting evaluations rarely happen casually on mobile
+            </p>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="image-card">
+                <img src="keyfindingsiwab.png" alt="Key learnings from final usability testing for Ivrell Wallsten website" />
+                <p class="figure-note">Final Validation: Confirming a frictionless experience</p>
+              </div>
+            </article>
+
+            <article class="dark-panel fade-up">
+              <div class="section-chip dark-chip">Strategic alignment</div>
+              <h3 class="dark-title">Stakeholder Validation — CEO</h3>
+
+              <div class="grid-2 dark-grid">
+                <div>
+                  <p class="dark-lead">
+                    Ensuring strategic alignment for IWAB’s new digital presence.
+                  </p>
+                  <p class="dark-text">
+                    To ensure strategic alignment between the new website and IWAB’s brand, positioning, service structure, and long-term vision before launch. This session focused on business alignment, not usability behavior.
+                  </p>
+                </div>
+
+                <div class="dark-quote-card">
+                  <p class="dark-code">// Business Goal</p>
+                  <p class="dark-quote">
+                    "The new structure perfectly mirrors our consultancy's growth and professional expertise."
+                  </p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="final-wireframes" aria-labelledby="final-wireframes-title">
+            <div class="section-chip">Conclusion</div>
+            <h2 class="section-title fade-up" id="final-wireframes-title">The Final Design</h2>
+            <p class="section-intro fade-up">(with iterations & validation)</p>
+
+            <article class="glass-card soft-card fade-up final-design-panel">
+              <div class="final-grid">
+                <div>
+                  <div>
+                    <p class="figure-note desktop-note">Full Desktop Experience</p>
+                    <div class="desktop-frame">
+                      <img
+                        src="dator.png"
+                        alt="IWAB Final Desktop Design"
+                        class="desktop-image"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mobile-col">
+                  <div>
+                    <p class="figure-note">Responsive Mobile Flow</p>
+                    <div class="mobile-shell">
+                      <div class="mobile-screen">
+                        <img
+                          src="mobil.png"
+                          alt="IWAB Final Mobile Design"
+                          class="mobile-image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="footer-space"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const tocLinks = document.querySelectorAll(".toc-list a");
+      const sections = [...tocLinks]
+        .map(link => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function setActiveTocSection(sectionId) {
+        if (!sectionId) return;
+        tocLinks.forEach(item => item.classList.remove("active"));
+        const link = document.querySelector('.toc-list a[href="#' + sectionId + '"]');
+        if (link) link.classList.add("active");
+      }
+
+      function updateActiveTocFromScroll() {
+        const activateLine = 148;
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+          if (section.getBoundingClientRect().top <= activateLine) {
+            currentSection = section;
+          }
+        });
+
+        setActiveTocSection(currentSection.getAttribute("id"));
+      }
+
+      let tocScrollPending = false;
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (tocScrollPending) return;
+          tocScrollPending = true;
+          requestAnimationFrame(() => {
+            updateActiveTocFromScroll();
+            tocScrollPending = false;
+          });
+        },
+        { passive: true }
+      );
+
+      window.addEventListener("resize", updateActiveTocFromScroll);
+      updateActiveTocFromScroll();
+
+      const fadeEls = document.querySelectorAll(".fade-up");
+
+      const fadeObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      fadeEls.forEach(el => fadeObserver.observe(el));
+    </script>
+  </body>
+</html>

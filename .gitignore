@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE (optional local settings — does not affect the live site)
+.vscode/
+*.code-workspace
+
+# OS thumbnails
+Thumbs.db

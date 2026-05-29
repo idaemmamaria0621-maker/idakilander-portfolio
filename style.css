@@ -1,0 +1,1687 @@
+
+      :root {
+        --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        --bg: #ffffff;
+        --text: #0f172a;
+        --text-body: #334155;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --soft: #f8fafc;
+
+        --primary: #6B21A8; /* lila */
+        --primary-2: #6B21A8;
+        --primary-soft: rgba(124, 58, 237, 0.12);
+
+        --radius-xl: 22px;
+        --radius-lg: 16px;
+        --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.06);
+
+        --ui-control-fs: 0.9375rem;
+        --ui-control-lh: 1.3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--text-body);
+        background: var(--bg);
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      p {
+        font-weight: 400;
+        color: var(--text-body);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Layout */
+      .container {
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 800;
+        margin: 0 0 10px;
+        letter-spacing: -0.02em;
+      }
+
+      .section-subtitle {
+        margin: 0 auto 28px;
+        max-width: 720px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* --- Uppdaterad Top Nav --- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Denna styr hur nära kanten namnet och knappen hamnar */
+.container {
+  width: 90%; 
+  max-width: 1200px; /* Ändra till 1400px om du vill ha det ännu bredare */
+  margin: 0 auto; 
+}
+
+.nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  /* Justify-content sköter spridningen automatiskt inom containern */
+  justify-content: space-between; 
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: var(--ui-control-fs);
+  line-height: var(--ui-control-lh);
+  font-weight: 500;
+  color: #334155;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        font-weight: 500;
+        color: #334155;
+      }
+
+      .nav-links a {
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: var(--soft);
+      }
+
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 11px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #fff;
+        font-weight: 600;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        cursor: pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+        user-select: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      
+      .btn.primary {
+  background-color: #000000; /* HELSVART bakgrund */
+  color: #ffffff !important;   /* HELVIT text (använd !important om lila texten hänger kvar) */
+  border-color: #000000;      /* HELSVART ram */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Hover-effekt (vad som händer när muspekaren är över knappen) */
+.btn.primary:hover {
+  background-color: #333333; /* Lite ljusare grå/svart för att visa interaktion */
+  border-color: #333333;
+  color: #ffffff;
+}
+
+      .btn.ghost {
+        background: transparent;
+      }
+
+      .btn.pill {
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+      }
+
+      .btn.pill.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      /* Mobile nav */
+      .burger {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #fff;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .burger span {
+        width: 18px;
+        height: 2px;
+        background: #334155;
+        position: relative;
+        display: block;
+      }
+      .burger span::before,
+      .burger span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        background: #334155;
+      }
+      .burger span::before {
+        top: -6px;
+      }
+      .burger span::after {
+        top: 6px;
+      }
+
+      .mobile-menu {
+        display: none;
+        border-top: 1px solid var(--border);
+        padding: 12px 0 18px;
+      }
+      .mobile-menu a {
+        display: block;
+        padding: 12px 0;
+        color: #334155;
+        font-weight: 600;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+      }
+
+      /* Hero */
+   .hero {
+  padding: 70px 0 50px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3efff 100%);
+  position: relative;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Ger texten lite mer utrymme än bilden */
+  align-items: center;
+  gap: 60px; /* Ökar avståndet mellan din text och din cirkulära bild */
+}
+
+      .kicker {
+        font-size: 14px;
+        font-weight: 600;
+        color: #334155;
+        margin: 0 0 8px;
+      }
+
+      .hero-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 6px;
+        color: #0f172a;
+      }
+
+      .hero-title {
+        font-size: clamp(44px, 5.2vw, 70px);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+        margin: 0 0 16px;
+      }
+
+      .hero-title .ux {
+        color: var(--primary);
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .hero-blurb {
+  max-width: 560px;
+  color: var(--text-body);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 40px 0 40px;
+}
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 14px 0 0;
+      }
+
+      .hero-card {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+      .avatar-wrap {
+        display: grid;
+        place-items: center;
+        gap: 14px;
+      }
+
+      .avatar {
+        width: min(320px, 100%);
+        max-width: min(320px, 85vw);
+        margin-inline: auto;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        overflow: hidden;
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+        
+      }
+
+   .social {
+  margin: top 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  transition: all 0.3s ease;
+  color: #000000;
+  text-decoration: none;
+}
+.social svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 7px;
+  fill: currentColor;
+}
+
+.social:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px); /* Lite mer distinkt lyft */
+  border-color: #4F46E5; /* Ramen blir lila vid hovring */
+  color: #4F46E5;        /* Ikonen blir lila vid hovring */
+}
+
+      /* About */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 780px;
+
+        .about-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.about-intro h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+/* De horisontella linjerna från din skiss */
+.detail-block {
+  border-top: 1px solid #e2e8f0; 
+  padding: 24px 0;
+}
+      }
+      
+
+      .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        padding: 22px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      /* What I do */
+      .services {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+        gap: 18px;
+      }
+
+      .service {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service .icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: var(--primary-soft);
+        border: 1px solid rgba(124, 58, 237, 0.22);
+        margin-bottom: 12px;
+      }
+
+      .service h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .service p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* Projects */
+     .filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Flyttar filter-knapparna till vänster */
+  margin: 30px 0 40px;
+}
+
+/* De runda filter-knapparna */
+.filters .btn.pill {
+  background: transparent;
+  color: #000;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px;
+  font-size: var(--ui-control-fs);
+  line-height: var(--ui-control-lh);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filters .btn.pill.active {
+  background: #000; /* Svart när den är vald */
+  color: #fff;
+  border-color: #000;
+}
+
+.filters .btn.pill:hover:not(.active) {
+  border-color: #000;
+  background: #f8f8f8;
+}
+
+/* Projekt-grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 32px;
+}
+
+/* Själva projektkorten */
+.card.project {
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card.project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #000; /* Ramen blir svart vid hover */
+}
+
+/* Bildbehållaren */
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card.project:hover .thumb img {
+  transform: scale(1.05); /* Bilden zoomar in lite vid hover */
+}
+
+/* Badgen på bilden */
+.badge {
+  /* Din nya färgstil */
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+
+  /* Behåll dessa för att den ska se ut som en badge */
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 100px; /* Gör den rundad */
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+/* Innehållet i kortet */
+.content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.content h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.content p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* "View Project" länken */
+.meta .btn.pill {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: var(--ui-control-fs);
+  line-height: var(--ui-control-lh);
+  transition: all 0.3s ease;
+}
+
+.meta .btn.pill:hover {
+  background: #000;
+  color: #fff;
+}
+
+      
+/* Testimonials - Centrerad layout */
+.testimonial-wrap {
+  display: grid;
+  place-items: center;
+  padding: 40px 0;
+}
+
+.testimonial {
+  width: min(820px, 100%);
+  display: flex;            /* Ändrat från grid till flex */
+  flex-direction: column;   /* Staplar elementen på höjden */
+  align-items: center;      /* Centrerar elementen vågrätt */
+  text-align: center;       /* Centrerar själva texten */
+  gap: 20px;
+}
+
+.t-avatar {
+  width: 80px;              /* Gjorde den lite större för bättre balans */
+  height: 80px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  /* Ingen margin behövs när vi kör align-items: center */
+}
+
+.quote {
+  color: #334155;
+  font-size: 18px;          /* Lite större text blir snyggare när den är centrerad */
+  font-style: italic;       /* Valfritt: ger citatkänsla */
+  line-height: 1.6;
+  max-width: 650px;         /* Förhindrar att textraderna blir för långa */
+  margin: 0 auto 12px;
+}
+
+.t-name {
+  font-weight: 800;
+  font-size: 16px;
+  margin: 0;
+}
+
+.t-role {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+      .dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 16px;
+      }
+
+      .dot {
+        width: 32px;
+        height: 6px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+      }
+      .dots-container, .dot {
+  display: none !important; /* Döljer prickarna helt */
+}
+
+      /* Contact */
+      .contact {
+        text-align: center;
+      }
+
+      /* Denna del ser till att hela bakgrunden bakom "Get in touch" blir lila */
+.contact {
+  background-color: #f3efff !important; /* Samma lila som footern */
+  padding: 100px 0; /* Ger luft över och under texten */
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+/* Denna del styr bredden på hela raden (input + knapp) */
+.contact-form {
+  display: flex;
+  gap: 12px;
+  margin: 40px auto 0; /* Centrerar formuläret */
+  width: 100%;
+  max-width: 650px; /* Ändra till 800px om du vill ha den ännu bredare */
+}
+
+/* Din befintliga kod fortsätter här... */
+.contact-form .input {
+  border: 2px solid #000000 !important;
+  background: #ffffff;
+  height: 54px;
+  padding: 0 20px;
+  border-radius: 12px;
+  flex: 1; /* Detta gör att fältet fyller ut allt utrymme som finns kvar */
+}
+      .contact-form .input {
+  border: 2px solid #000000 !important; /* Gör ramen kolsvart och tydlig */
+  background: #ffffff;
+  height: 54px;
+  padding: 0 20px;
+  border-radius: 12px;
+  flex: 1;
+  font-size: 16px;
+}
+
+/* Gör knappen lika hög som inputfältet för symmetri */
+.contact-form .btn.primary {
+  height: 54px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 0 30px;
+  font-weight: 700;
+}
+
+      .input:focus {
+        border-color: rgba(124, 58, 237, 0.6);
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+      }
+
+     /* --- Uppdaterad Footer som matchar lila sektion --- */
+footer {
+  padding: 60px 0 80px;      /* Mer luft i botten ser proffsigare ut */
+  background-color: #f3efff; /* Samma färg som Contact-sektionen */
+  border-top: none;          /* Tar bort linjen så färgerna flyter ihop */
+  color: var(--muted);
+  font-size: 14px;           /* Lite större för bättre läsbarhet */
+  margin-top: -1px;          /* Säkerställer att det inte finns någon glipa */
+}
+
+/* Om du vill ha en väldigt svag linje för att ändå separera lite */
+.footer-content {
+  border-top: 1px solid rgba(0, 0, 0, 0.05); 
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+      /* Helpers */
+      .center {
+        text-align: center;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-card {
+          order: -1;
+        }
+        .hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px; /* Höjden på vågen */
+  background-color: #ffffff; /* Samma färg som sektionen under */
+  clip-path: ellipse(80% 100% at 50% 100%);
+}
+        .services {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+        .burger {
+          display: inline-flex;
+        }
+        .mobile-menu.show {
+          display: block;
+          max-height: min(70dvh, 420px);
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .nav {
+          height: auto;
+          min-height: 64px;
+          flex-wrap: wrap;
+          row-gap: 10px;
+          padding-block: 10px;
+        }
+        .brand {
+          max-width: calc(100% - 120px);
+          line-height: 1.2;
+        }
+        .nav-cta {
+          margin-left: auto;
+          flex-shrink: 0;
+        }
+        .nav-cta .btn.primary {
+          padding: 10px 12px;
+          font-size: var(--ui-control-fs);
+          line-height: var(--ui-control-lh);
+        }
+        .container {
+          width: min(1200px, calc(100% - 24px));
+        }
+        .contact-form {
+          flex-direction: column;
+          align-items: stretch;
+          max-width: none;
+        }
+        .contact-form .btn.primary {
+          width: 100%;
+        }
+        .services {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonial {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+        .quote {
+          font-size: clamp(15px, 4vw, 18px);
+        }
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .hero-actions .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      /* Force-center About */
+#about .about-grid {
+  max-width: none;          /* tar bort gamla max-width */
+  display: flex;            /* byter från grid till flex */
+  justify-content: center;  /* centrerar kortet */
+}
+
+#about .card {
+  width: min(700px, 100%);  /* gör kortet smalare och centrerbart */
+  margin: 0 auto;           /* extra säker centrering */
+  text-align: center;       /* centrerar texten */
+}
+
+
+body {
+    /* 1. Mjuk, ljuslila tonad bakgrund som täcker hela sidan */
+    background: linear-gradient(
+        to bottom, 
+        #f5f0ff 0%, /* En väldigt blek, varm lila */
+        #ffffff 100%
+    );
+    margin: 0;
+    font-family: var(--font-sans);
+}
+
+/* 2. En container för din herosektion som får en SVG-våg som bakgrund */
+#home.hero {
+    /* SVG-våg i nederkanten */
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23dbdcff" fill-opacity="0.25" d="M0,256L60,245.3C120,235,240,213,360,197.3C480,181,600,171,720,181.3C840,192,960,224,1080,229.3C1200,235,1320,213,1380,202.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom; /* Placerar vågen längst ner i hero-sektionen */
+    
+    /* Behåll eller justera din befintliga padding för att skapa avstånd */
+    padding-top: 80px; 
+    padding-bottom: 140px; /* Mer utrymme nedtill så vågen inte täcker text */
+    position: relative; /* Viktigt för placeringen av barn-element */
+    z-index: 1; /* Så att texten ligger över vågen */
+}
+
+/* --- Justeringar för element inuti --- */
+
+.hero-content {
+    /* Se till att innehållet är centrerat eller flyter som det ska */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Ligger över vågen */
+}
+
+/* Valfritt: Om du vill att dina portföljkort ska sticka ut lite mer mot den lila bakgrunden */
+.project-card, .blog-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Halvgenomskinlig vit */
+    backdrop-filter: blur(5px); /* En liten 'frostad' effekt */
+}
+
+/* --- Slut på CSS-kod --- */
+/* Process Section Styling */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.process-card {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  text-align: left;
+}
+
+/* Cirkeln med siffran - ersätter ikonerna */
+.process-number {
+  width: 40px;
+  height: 40px;
+  background: #000; /* Svart för att matcha dina nya knappar */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.process-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.process-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+
+/* Ta bort det vita gapet mellan lila och vitt */
+.hero {
+  position: relative;
+  overflow: hidden;
+  /* Minska padding-bottom så att nästa sektion kan komma närmare */
+  padding-bottom: 80px; 
+}
+
+#about {
+  /* Vi tar bort padding-top helt för att den ska ligga kloss an vågen */
+  padding-top: 0 !important; 
+  margin-top: 0;
+  position: relative;
+  z-index: 10;
+}
+
+
+
+/* Gör About-sektionen lila istället för vit */
+#about {
+  background-color: #f3efff !important; /* Din svagt lila färg */
+  padding-top: 5px !important;
+  padding-bottom: 60px !important;
+  margin-top: -2px !important; /* Tar bort eventuella glipor */
+}
+
+/* VIKTIGT: Justera vågen (clip-path) så den också är lila */
+.hero::after {
+  background-color: #f3efff !important; /* Matcha exakt med About-sektionen */
+}
+
+/* Om du vill att även projekt-sektionen ska vara lila, lägg till detta: */
+/* #projects { background-color: #f3efff !important; } */
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 40px 0;
+}
+
+.footer-blurb {
+  font-size: 14px;
+  max-width: 300px;
+  margin-bottom: 12px;
+  color: #64748b;
+}
+
+.footer-contacts a {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+
+.footer-contacts a:hover {
+  color: #7c3aed;
+}
+
+.service.card {
+  padding: 32px;
+  text-align: left;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.service h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.service p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#services .section-subtitle {
+  text-align: left;    /* Tvingar texten till vänster */
+  margin-left: 0;      /* Tar bort eventuell automatisk centrering */
+  max-width: 600px;    /* Gör att texten inte blir för bred och svårläst */
+  margin-bottom: 40px; /* Ger luft ner till dina service-kort */
+}
+
+
+
+/* Samma storlek som dina tidigare ikoner */
+.material-symbols-outlined {
+  font-size: 32px; /* Samma storlek som dina tidigare ikoner */
+  color: #000000;  /* Gör dem helt svarta */
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Om du vill att de ska bli lila när man hovrar på kortet: */
+.service.card:hover .material-symbols-outlined {
+  color: #4F46E5; /* Din nya lila färg */
+  transition: color 0.3s ease;
+}
+
+.hero img {
+  display: block;
+  margin: 0 auto;
+}
+
+.hero-actions {
+  margin-top: 50px;
+  margin-bottom:0px;
+  display: flex;
+  gap: 16px;
+}
+
+
+
+.footer-contacts .social {
+  margin-top: 12px;
+}
+
+.footer-contacts .social {
+  margin-top: 12px;
+}
+
+/* --- BEHÅLL HERO - GÖR RESTEN ENHETLIGT --- */
+
+/* 1. Sätt den ljusa färgen på alla sektioner UNDER heron */
+#about, 
+#services, 
+#projects, 
+#testimonials, 
+.contact, 
+footer {
+    background-color: #fdfbff !important; /* Den ljusa färgen från din projekt-sektion */
+    background-image: none !important;
+    border: none !important;
+    margin-top: 0 !important;
+}
+
+/* 2. Flytta upp About-texten så den syns lite tidigare */
+#about {
+    padding-top: 10px !important; /* Minskar gapet direkt efter vågen */
+}
+
+/* 3. Se till att det inte finns några vita glipor mellan sektionerna */
+.section {
+    margin-bottom: 0 !important;
+}
+
+/* 4. Fixa containrarna så de inte har egen bakgrund */
+.container {
+    background: transparent !important;
+}
+
+
+/* --- Tvinga samma färg på ALLT under Heron --- */
+
+/* 1. Basfärgen för alla sektioner - Harmoniserad */
+#about, 
+#uxprocess,
+#services, 
+#projects, 
+#testimonials, 
+.process-section, /* Se till att denna klass matchar din HTML för UX-processen */
+.contact, 
+footer {
+    background-color: #f6f3ff !important; /* Din fastställda projekt-lila */
+    border: none !important;
+}
+
+
+/* 2. Fixa specifikt korten i UX-processen om de är vita */
+.process-card {
+    background-color: #ffffff !important; /* Behåll korten vita om du vill att de ska "poppa" */
+    border: 1px solid var(--border) !important;
+}
+
+/* 3. Om du vill att även bakgrunden BAKOM process-korten ska vara samma lila */
+.process-grid {
+    background: transparent !important;
+}
+
+/* 4. Dubbelkoll för About-sektionen */
+section#about {
+    background-color: #f6f3ff !important;
+    margin-top: -1px !important; /* Tar bort glipan efter vågen */
+}
+
+/* --- SNYGGA EFFEKTER PÅ ALLA KORT --- */
+
+/* 1. Grundstil för alla kort (Projekt, Services, Process) */
+.card, 
+.project, 
+.service.card, 
+.process-card,
+.testimonial {
+    background: rgba(255, 255, 255, 0.7) !important; /* Halvgenomskinlig vit */
+    backdrop-filter: blur(12px) saturate(180%);     /* Glassmorphism-effekt */
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 30px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 2. Effekt när man för muspekaren över korten */
+.card:hover, 
+.project:hover, 
+.service.card:hover, 
+.process-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Lyfter och förstorar lite */
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: var(--primary) !important; /* Din lila färg blir ramen vid hover */
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.12) !important; /* Lila tonad skugga */
+}
+
+/* 3. Gör bilderna i projektkorten lite snyggare */
+.thumb {
+    border-radius: 16px !important;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.thumb img {
+    transition: transform 0.6s ease !important;
+}
+
+.card.project:hover .thumb img {
+    transform: scale(1.1); /* Zooma in bilden mjukt vid hover */
+}
+
+/* --- MODERN LAYOUT FÖR ABOUT ME --- */
+
+#about .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Delar upp sidan i två kolumner */
+    gap: 80px;
+    padding: 120px 0; /* Mer luft gör att det känns exklusivt */
+    align-items: start;
+}
+
+/* Den stora "Hej"-texten */
+.about-title-large {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+}
+
+.about-title-large span {
+    color: var(--primary); /* Gör "Ida Kilander" lila */
+}
+
+/* Den högra kolumnen med brödtext */
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-text-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0;
+}
+
+/* En diskret detalj: en liten "stjärna" eller punkt framför texten */
+.about-text-content p::before {
+    content: "—";
+    display: block;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* Responsiv för mobilen */
+@media (max-width: 900px) {
+    #about .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 0;
+    }
+}
+
+/* --- OPTIMERING AV ABOUT-SEKTIONEN --- */
+
+#about .container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Gör textdelen bredare för att minska höjden */
+    gap: 40px;
+    padding: 60px 0 !important; /* Minskar avståndet uppåt och nedåt rejält */
+    align-items: start;
+}
+
+/* Behållare för skills under din "About me"-rubrik */
+.about-skills {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: rgba(168, 85, 247, 0.08); /* Väldigt ljus lila */
+    color: #6d28d9; /* Mörkare lila för läsbarhet */
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Gör texten lite mer kompakt */
+.about-text-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #334155;
+}
+
+/* Mobilanpassning */
+@media (max-width: 768px) {
+    #about .container {
+        grid-template-columns: 1fr;
+        padding: 40px 20px !important;
+    }
+}
+
+
+/* --- TA BORT ONÖDIGT TOMRUM --- */
+
+/* 1. Gör About-sektionen ännu mer kompakt */
+#about {
+    padding-top: 20px !important;    /* Minskar avståndet till vågen ovanför */
+    padding-bottom: 20px !important; /* Minskar avståndet till projekten under */
+    margin-top: -20px !important;    /* Drar upp hela sektionen lite extra */
+}
+
+#about .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: auto !important;     /* Tvingar den att inte ta upp en hel skärm */
+}
+
+/* 2. Minska avståndet ovanför Selected Projects-rubriken */
+#projects {
+    padding-top: 40px !important;
+}
+
+#projects h2 {
+    margin-top: 0 !important;
+    margin-bottom: 30px !important;
+}
+
+/* 3. Om din HERO (översta delen) är för hög, kan vi korta ner den också */
+.hero {
+    min-height: 70vh !important; /* Ändra från 100vh till 70vh så man ser mer under */
+    padding-bottom: 50px !important;
+}
+
+/* --- COMPACT SECTIONS --- */
+
+/* Minska avståndet mellan alla stora sektioner */
+#about, #projects, #contact {
+    padding-top: 40px !important;    /* Mycket mindre än standard 100px */
+    padding-bottom: 40px !important;
+}
+
+/* Specifikt för Selected Projects */
+#projects .container {
+    margin-top: 0 !important;
+}
+
+/* Specifikt för Get in Touch */
+#contact {
+    background-color: #f8fafc; /* En svag bakgrundsfärg kan hjälpa att separera utan att behöva massor av luft */
+    padding: 50px 0 !important;
+}
+
+#contact h2 {
+    margin-bottom: 20px !important;
+}
+
+/* Om dina projektkort är för stora/höga, kan du minska deras marginaler */
+.project-card {
+    margin-bottom: 30px !important;
+}
+
+
+/* --- COMPACT CONTACT SECTION --- */
+
+#contact {
+    padding: 60px 0 !important; /* Minskar höjden på hela sektionen */
+    text-align: center;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Mellanrum mellan knapparna */
+    margin-top: 30px;
+}
+
+/* Stil för din CV-knapp (Outline-stil) */
+.btn-download-footer {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-download-footer:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Mobilanpassning: Stapla knapparna om skärmen är liten */
+@media (max-width: 600px) {
+    .contact-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+/* --- COMPACT CONTACT STYLING --- */
+
+#contact {
+    padding: 50px 0 !important;
+    text-align: center;
+}
+
+.contact-info-row {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #475569;
+}
+
+.contact-link {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--primary);
+}
+
+.separator {
+    margin: 0 15px;
+    color: #cbd5e1;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Stil för knapparna */
+.btn-download-footer, .btn-linkedin {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: var(--ui-control-fs);
+    line-height: var(--ui-control-lh);
+    transition: all 0.3s;
+}
+
+.btn-download-footer {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-linkedin {
+    background-color: #0077b5; /* LinkedIn-blå */
+    color: white;
+}
+
+.btn-download-footer:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Mobil-fix: Stapla om det blir för trångt */
+@media (max-width: 600px) {
+    .contact-info-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .separator { display: none; }
+    .contact-actions { flex-direction: column; }
+}
+
+
+/* --- GLOBAL COMPACT MODE --- */
+
+/* 1. Minska avståndet i alla huvudsektioner */
+.section, 
+#about, 
+#projects, 
+#testimonials, 
+#contact {
+    padding-top: 40px !important;    /* Minskar rejält från standard 100px */
+    padding-bottom: 40px !important;
+    min-height: auto !important;     /* Hindrar sektioner från att tvinga fram helskärm */
+}
+
+/* 2. Strama åt mellanrum mellan rubrik och innehåll */
+.section-title, 
+.about-title-large,
+h2 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* 3. Om din Hero (översta delen) tar för mycket plats */
+.hero {
+    min-height: 80vh !important;     /* Gör att man ser toppen på About direkt */
+    padding-bottom: 40px !important;
+}
+
+/* 4. Specifikt för Testimonials -> Contact flödet */
+#testimonials {
+    padding-bottom: 10px !important;
+}
+
+#contact {
+    padding-top: 20px !important;
+}
+
+/* 5. Gör projektlistan mer kompakt */
+.projects-grid {
+    gap: 20px !important;            /* Minskar gapet mellan projektkorten */
+    margin-bottom: 20px !important;
+}
+
+.project-card {
+    margin-bottom: 10px !important;
+}
+
+/* --- FIX FÖR FLÖDET HERO -> ABOUT -> PROJECTS --- */
+
+/* 1. Minska höjden på din Hero (vågen) */
+.hero {
+    min-height: 70vh !important; /* Ändrar från 100 till 70 så man ser About direkt */
+    padding-bottom: 20px !important;
+    display: flex;
+    align-items: center;
+}
+
+/* 2. Dra upp About-sektionen så den nuddar vågen bättre */
+#about {
+    padding-top: 10px !important;   /* Minimalt avstånd uppåt */
+    padding-bottom: 30px !important; /* Minskat avstånd nedåt */
+    margin-top: -30px !important;    /* Drar upp hela blocket lite extra */
+}
+
+/* 3. Se till att Selected Projects börjar direkt efter */
+#projects {
+    padding-top: 20px !important;   /* Minskar hålet mellan About och Projects */
+}
+
+/* 4. Justera container-layouten i About för att spara höjd */
+#about .container {
+    gap: 30px !important;           /* Mindre gap mellan rubrik och text */
+    padding-top: 0 !important;
+}
+
+/* 5. Minska rubrikernas marginaler */
+.about-title-large, 
+.section-title {
+    margin-bottom: 15px !important;
+}
+
+/* --- ENBART LINKEDIN-KNAPPEN --- */
+
+.btn-linkedin {
+    background-color: #0077b5 !important; /* LinkedIn-blå */
+    color: white !important;              /* Vit text */
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.btn-linkedin:hover {
+    background-color: #005582 !important; /* Mörkare blå vid hover */
+    color: white !important;
+}
+
+
+/* --- SPECIALSTYRNING FÖR LINKEDIN-KNAPPEN --- */
+
+a.social[aria-label="LinkedIn"] {
+    background-color: #0077b5 !important; /* LinkedIn-blå */
+    color: white !important;              /* Vit text */
+    padding: 10px 22px !important;        /* Gör det till en knapp-form */
+    border-radius: 8px !important;        /* Rundade hörn */
+    text-decoration: none !important;     /* Ingen understrykning */
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+    transition: background-color 0.3s ease, transform 0.2s !important;
+}
+
+a.social[aria-label="LinkedIn"]:hover {
+    background-color: #005582 !important; /* Mörkare blå vid hover */
+    transform: translateY(-2px) !important; /* Liten lyft-effekt */
+}
+
+/* --- FIX FÖR LINKEDIN-KNAPP MED IKON OCH TEXT --- */
+
+.social.linkedin-btn {
+    background-color: #0077b5 !important; /* LinkedIn-blå */
+    color: #ffffff !important;           /* Vit text */
+    display: inline-flex !important;     /* Lägger ikon och text bredvid varandra */
+    align-items: center !important;
+    gap: 10px !important;                /* Mellanrum mellan ikon och text */
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Gör själva SVG-ikonen vit och lagom stor */
+.social.linkedin-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #ffffff !important;            /* Tvingar ikonen att bli vit */
+}
+
+.social.linkedin-btn:hover {
+    background-color: #005582 !important; /* Mörkare blå vid hover */
+    transform: translateY(-2px) !important;
+}
+
+
+/* --- TOTAL FIX FÖR LINKEDIN-KNAPPEN --- */
+
+.social.linkedin-btn {
+    background-color: #0077b5 !important;
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;                 /* Skapar avstånd mellan ikon och text */
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    width: auto !important;              /* Viktigt: tar bort fast bredd om den fanns */
+    height: auto !important;             /* Viktigt: tar bort fast höjd */
+    position: relative !important;
+}
+
+/* Fixar ikonen så den inte flyter fritt */
+.social.linkedin-btn svg {
+    position: static !important;         /* Tar bort eventuell "absolute" position */
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+    fill: white !important;
+    flex-shrink: 0;                      /* Hindrar ikonen från att tryckas ihop */
+}
+
+/* === Responsiv polish: mobil, surfplatta, säkra kanter === */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.topbar .container.nav {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: clamp(32px, 8vw, 56px);
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .hero,
+  #home.hero {
+    min-height: 0 !important;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-top: 28px;
+  }
+
+  footer a[href^="mailto"],
+  footer a[href^="tel"] {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters .btn.pill {
+    padding: 8px 14px;
+    font-size: var(--ui-control-fs);
+    line-height: var(--ui-control-lh);
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: min(1120px, calc(100% - 28px));
+  }
+}
+
+.btn,
+.burger,
+.mobile-menu a,
+.filters .btn.pill {
+  touch-action: manipulation;
+}
+
+

@@ -1,0 +1,1941 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>New Mom | Case Study</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+        --text-body: #e2e8f0;
+        --ui-control-fs: 0.9375rem;
+        --ui-control-lh: 1.3;
+        --bg: #0f1114;
+        --bg-soft: #151920;
+        --surface: rgba(22, 27, 35, 0.86);
+        --surface-strong: rgba(24, 31, 40, 0.92);
+        --surface-solid: #1b212b;
+
+        --text: #f4f5f7;
+        --text-soft: #cdd3dd;
+        --muted: #97a2b3;
+
+        --line: rgba(255, 255, 255, 0.10);
+        --line-strong: rgba(255, 255, 255, 0.16);
+
+        --purple: #f472b6;
+        --purple-2: #ec4899;
+        --purple-3: #f9a8d4;
+        --purple-soft: rgba(244, 114, 182, 0.18);
+        --pink-soft: rgba(244, 114, 182, 0.12);
+        --green-soft: rgba(16, 185, 129, 0.12);
+        --yellow-soft: rgba(236, 72, 153, 0.14);
+        --orange-soft: rgba(244, 114, 182, 0.20);
+        --red-soft: rgba(239, 68, 68, 0.16);
+
+        --shadow-xl: 0 30px 100px rgba(0, 0, 0, 0.45);
+        --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.35);
+        --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.28);
+        --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.22);
+
+        --radius-2xl: 38px;
+        --radius-xl: 28px;
+        --radius-lg: 22px;
+        --radius-md: 18px;
+        --radius-sm: 14px;
+        --pill: 999px;
+
+        --max: 1280px;
+        --reading: 860px;
+        --section-space: 64px;
+
+        --focus: 0 0 0 4px rgba(244, 114, 182, 0.28);
+
+        /* Brand: homepage orange + ink readable on pink topbar */
+        --signature-ink: #2f1d2b;
+        --accent-warm: #ff8c00;
+        --toc-sticky-top: calc(var(--topbar-height) + 1rem);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: auto;
+        scrollbar-gutter: stable;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--text-body);
+        background:
+          radial-gradient(circle at top left, rgba(244, 114, 182, 0.14), transparent 28%),
+          radial-gradient(circle at top right, rgba(236, 72, 153, 0.14), transparent 24%),
+          radial-gradient(circle at 20% 80%, rgba(244, 114, 182, 0.10), transparent 24%),
+          linear-gradient(180deg, #0f1114 0%, #131720 42%, #0f1114 100%);
+        line-height: 1.65;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      * {
+        font-family: var(--font-sans);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--wcag-accent);
+        outline-offset: 3px;
+        border-radius: 14px;
+      }
+
+      .btn.primary:focus-visible {
+        outline-color: #ffffff;
+      }
+
+
+      .container {
+        width: min(var(--max), calc(100% - 240px));
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 12px 18px;
+        border-radius: var(--pill);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        font-weight: 700;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn.primary {
+        color: #101114;
+        border-color: rgba(244, 114, 182, 0.55);
+        background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+      }
+
+      .btn.ghost:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .hero {
+        padding: 36px 0 24px;
+      }
+
+      .hero-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-2xl);
+        padding: 44px;
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        align-items: center;
+        gap: 34px;
+        background:
+          linear-gradient(180deg, rgba(20, 25, 32, 0.95), rgba(19, 23, 30, 0.96)),
+          linear-gradient(135deg, rgba(244, 114, 182, 0.14), rgba(236, 72, 153, 0.08));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: var(--shadow-xl);
+        isolation: isolate;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        top: -120px;
+        right: -100px;
+        background: radial-gradient(circle, rgba(236, 72, 153, 0.24), transparent 70%);
+        z-index: -1;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        left: -80px;
+        bottom: -100px;
+        background: radial-gradient(circle, rgba(244, 114, 182, 0.22), transparent 70%);
+        z-index: -1;
+      }
+
+      /* WCAG-oriented light-pink theme override */
+      :root {
+        --wcag-bg: #fff7fc;
+        --wcag-surface: #fff0f8;
+        --wcag-text: #2f1d2b;
+        --wcag-muted: #4a3243;
+        --wcag-accent: #7a1f56;
+        --wcag-accent-contrast: #ffffff;
+        --wcag-border: rgba(122, 31, 86, 0.28);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(255, 209, 230, 0.26), transparent 34%),
+          radial-gradient(circle at top right, rgba(255, 182, 216, 0.22), transparent 30%),
+          linear-gradient(180deg, var(--wcag-bg) 0%, #ffeef7 55%, #fff9fd 100%) !important;
+      }
+
+      body * {
+        color: var(--wcag-text) !important;
+        border-color: var(--wcag-border) !important;
+      }
+
+      .toc-card,
+      .toc-list a {
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      .toc-list a {
+        color: #473f55 !important;
+      }
+
+      .toc-list a:hover,
+      .toc-list a.active {
+        background: transparent !important;
+        border: none !important;
+        color: #111111 !important;
+        opacity: 1 !important;
+      }
+
+      .toc-list a.active {
+        font-weight: 700 !important;
+      }
+
+      .hero-card,
+      .panel,
+      .card,
+      .metric-card,
+      .insight-card,
+      .timeline-card,
+      .section-card {
+        background: var(--wcag-surface) !important;
+      }
+
+      .btn.primary,
+      .btn {
+        background: #ffdced !important;
+        color: var(--wcag-text) !important;
+      }
+
+      .btn.primary {
+        background: var(--wcag-accent) !important;
+        color: var(--wcag-accent-contrast) !important;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 14px;
+        border-radius: var(--pill);
+        background: rgba(122, 31, 86, 0.12);
+        border: 1px solid rgba(122, 31, 86, 0.22);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #7a1f56 !important;
+        letter-spacing: 0.02em;
+        margin-bottom: 18px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin-top: 0;
+        color: var(--text);
+      }
+
+      h1 {
+        margin-bottom: 0;
+        font-size: clamp(2.8rem, 6vw, 5.15rem);
+        line-height: 0.93;
+        letter-spacing: -0.07em;
+        font-weight: 800;
+      }
+
+      .hero h1 span {
+        display: block;
+      }
+
+      .hero h1 .soft {
+        color: #6c0fc2;
+        font-weight: 300;
+        font-size: clamp(1.7rem, 3vw, 2.75rem);
+        line-height: 1.14;
+        margin-top: 14px;
+        letter-spacing: -0.04em;
+      }
+
+      h2 {
+        font-weight: 700;
+      }
+
+      h3 {
+        font-weight: 600;
+      }
+
+      p {
+        font-weight: 400;
+        color: var(--text-body);
+      }
+
+      .lead {
+        max-width: 620px;
+        margin: 24px 0 0;
+        font-size: 1rem;
+        line-height: 1.88;
+        font-weight: 400;
+        color: var(--text-body);
+      }
+
+      .hero-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .hero-media img {
+        width: min(100%, 390px);
+        margin-inline: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .side-nav {
+        position: sticky;
+        top: var(--toc-sticky-top);
+        align-self: start;
+        z-index: 50;
+        max-height: calc(100dvh - var(--toc-sticky-top) - 1.5rem);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        padding-right: 4px;
+      }
+
+      .toc-card {
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      .toc-label {
+        margin: 0 0 12px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #766f83;
+      }
+
+      .toc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .toc-list a {
+        display: block;
+        padding: 8px 0;
+        border: none;
+        border-radius: 0;
+        font-size: var(--ui-control-fs);
+        line-height: var(--ui-control-lh);
+        color: #473f55;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .toc-list a:hover {
+        background: transparent;
+        color: var(--wcag-text, #2f1d2b);
+        opacity: 0.85;
+        transform: none;
+      }
+
+      .toc-list a.active {
+        background: transparent;
+        border: none;
+        color: #111111;
+        font-weight: 700;
+        opacity: 1;
+        transform: none;
+      }
+
+      #main-content {
+        padding-top: var(--topbar-height);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      .content-main > section:first-of-type {
+        padding-top: 0;
+      }
+
+      .content-main {
+        min-width: 0;
+      }
+
+      #overview .grid-3 .glass-card.soft-card {
+        padding: clamp(1.85rem, 3.5vw, 2.5rem) clamp(1.65rem, 3vw, 2.15rem);
+      }
+
+      #overview .card-heading {
+        margin-bottom: 1.15rem;
+      }
+
+      #overview .meta-list li {
+        color: #6b6178 !important;
+        font-weight: 400;
+        padding: 0.7rem 0;
+      }
+
+      #overview .meta-list li strong {
+        color: var(--wcag-text, #2f1d2b) !important;
+        font-weight: 700;
+      }
+
+      #overview .bullet-list li {
+        color: #5c5368 !important;
+        font-weight: 400;
+        padding: 0.7rem 0;
+      }
+
+      #overview .card-heading h3 {
+        color: var(--wcag-text, #2f1d2b) !important;
+        font-weight: 700;
+      }
+
+      #overview .meta-list li:first-child,
+      #overview .bullet-list li:first-child {
+        padding-top: 0;
+      }
+
+      .split-analysis,
+      .split-2,
+      .split-flow {
+        display: grid;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .split-analysis,
+      .split-2 {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+
+      .split-flow {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      }
+
+      .split-analysis > *,
+      .split-2 > *,
+      .split-flow > * {
+        min-width: 0;
+      }
+
+      section {
+        padding: var(--section-space) 0;
+        scroll-margin-top: calc(var(--topbar-height) + 2.5rem);
+      }
+
+      .section-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6e6680;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 3vw, 2.85rem);
+        letter-spacing: -0.045em;
+        line-height: 1.04;
+      }
+
+      .section-intro {
+        max-width: 760px;
+        color: var(--muted);
+        line-height: 1.82;
+        margin: 0 0 28px;
+        font-size: 1rem;
+      }
+
+      .section-block {
+        margin-top: 34px;
+      }
+
+      .glass-card {
+        background: var(--surface);
+        backdrop-filter: blur(14px) saturate(160%);
+        -webkit-backdrop-filter: blur(14px) saturate(160%);
+        border: 1px solid rgba(255,255,255,0.86);
+        border-radius: var(--radius-lg);
+        padding: 26px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .soft-card {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(246,240,255,0.74));
+      }
+
+      .soft-purple {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(243,232,255,0.86));
+      }
+
+      .soft-pink {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(253,242,248,0.86));
+      }
+
+      .soft-green {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(236,253,243,0.86));
+      }
+
+      .soft-yellow {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,251,234,0.86));
+      }
+
+      .soft-orange {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,247,237,0.86));
+      }
+
+      .soft-red {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,241,242,0.86));
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .card-heading {
+        margin-bottom: 14px;
+      }
+
+      .card-heading h3,
+      .card-heading h4 {
+        margin: 0;
+      }
+
+      .meta-list,
+      .bullet-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .meta-list li,
+      .bullet-list li {
+        padding: 11px 0;
+        border-top: 1px solid rgba(17,17,17,0.06);
+        color: #374151;
+      }
+
+      .meta-list li:first-child,
+      .bullet-list li:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .goal-card {
+        margin-top: 22px;
+        padding: 30px;
+      }
+
+      .goal-card p {
+        margin: 0;
+        font-size: 1.06rem;
+        line-height: 1.88;
+        color: #374151;
+      }
+
+      .image-card {
+        padding: 18px;
+        overflow: hidden;
+      }
+
+      .image-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .process-item {
+        text-align: center;
+      }
+
+      .process-item h3 {
+        margin: 0 0 12px;
+        font-size: 1.06rem;
+        font-weight: 600;
+      }
+
+      .process-icon {
+        min-height: 130px;
+        display: grid;
+        place-items: center;
+        border-radius: 20px;
+        background: linear-gradient(180deg, #fcf7fb, #f8ecf7);
+        border: 1px solid rgba(17,17,17,0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .process-icon:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .headline-panel {
+        padding: 38px;
+      }
+
+      .headline-panel h3 {
+        margin: 0 0 18px;
+        font-size: 2rem;
+        letter-spacing: -0.03em;
+      }
+
+      .headline-panel p {
+        margin: 0;
+        max-width: 900px;
+        font-size: 1.12rem;
+        line-height: 1.84;
+        color: #4b5563;
+      }
+
+      .mini-card {
+        padding: 18px;
+      }
+
+      .mini-card strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .mini-card p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.66;
+        font-size: 0.95rem;
+      }
+
+      .media-frame img {
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+      }
+
+      .figure-note {
+        margin: 14px 0 0;
+        text-align: center;
+        color: #374151;
+        font-weight: 500;
+      }
+
+      .pill-list {
+        margin: 24px 0;
+        padding-left: 20px;
+        color: #374151;
+        line-height: 2;
+        font-size: 1rem;
+      }
+
+      .persona-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+
+      .center-card {
+        text-align: center;
+        padding: 24px;
+      }
+
+      .persona-avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto;
+      }
+
+      .callout {
+        margin-top: 24px;
+        padding: 16px;
+        background: #f3e8ff;
+        border-radius: 16px;
+        text-align: center;
+        font-weight: 500;
+        color: #3f2b63;
+      }
+
+      .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      .icon-emoji {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+      }
+
+      .concept-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .highlight-box {
+        background: #fdf2f8;
+        border-radius: 18px;
+        padding: 22px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+
+      .priority-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+
+      .priority-card {
+        padding: 0;
+        overflow: hidden;
+      }
+
+      /* MoSCoW-kort: ljusa ytor (glass-card annars mörk --surface) */
+      .glass-card.priority-card.must,
+      .glass-card.priority-card.should,
+      .glass-card.priority-card.could,
+      .glass-card.priority-card.wont {
+        background: #ffffff !important;
+        border-color: rgba(122, 31, 86, 0.14) !important;
+      }
+
+      .priority-head {
+        padding: 18px 24px;
+      }
+
+      .priority-head h4 {
+        margin: 0;
+        font-size: 1.14rem;
+        text-align: center;
+        letter-spacing: -0.02em;
+      }
+
+      .priority-body {
+        padding: 28px 30px;
+      }
+
+      .priority-body ul {
+        margin: 0;
+        padding-left: 20px;
+        color: #111827;
+        line-height: 2;
+      }
+
+      .must .priority-head {
+        background: linear-gradient(90deg, #f3f4f6 0%, #4ade80 100%);
+      }
+
+      .should .priority-head {
+        background: linear-gradient(90deg, #f3f4f6 0%, #fde047 100%);
+      }
+
+      .could .priority-head {
+        background: linear-gradient(90deg, #ffffff 0%, #fb923c 100%);
+      }
+
+      /* Slutfärg ljusare rosaröd så #2f1d2b ≥ AA mot hela gradienten */
+      .wont .priority-head {
+        background: linear-gradient(90deg, #ffffff 0%, #fb7185 100%);
+      }
+
+      .footer-space {
+        height: 44px;
+      }
+
+      [data-lucide] {
+        width: 40px;
+        height: 40px;
+        stroke: #a855f7;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1180px) {
+        .container {
+          width: min(var(--max), calc(100% - 160px));
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+
+        .side-nav {
+          position: sticky;
+          top: var(--toc-sticky-top);
+          z-index: 50;
+          align-self: start;
+          order: -1;
+          max-height: none;
+          overflow-y: visible;
+          overflow-x: visible;
+          padding-right: 0;
+        }
+
+        .toc-card {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          max-width: 100%;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+        }
+
+        .toc-list {
+          display: flex;
+          gap: 8px;
+          min-width: max-content;
+        }
+
+        .toc-list a {
+          white-space: nowrap;
+        }
+
+        .hero-card,
+        .split-2,
+        .split-flow,
+        .split-analysis,
+        .highlight-box {
+          grid-template-columns: 1fr !important;
+        }
+
+        .hero-media {
+          order: -1;
+        }
+
+        .grid-3,
+        .concept-grid,
+        .persona-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-2,
+        .feature-cards,
+        .priority-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        :root {
+          --section-space: 34px;
+        }
+
+        .container {
+          width: min(var(--max), 100%);
+        }
+
+        .content-main {
+          overflow-x: hidden;
+        }
+
+        #main-content .toc-scroll-track .toc-list {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 10px !important;
+          min-width: max-content !important;
+          width: max-content !important;
+        }
+
+        #main-content .toc-scroll-track .toc-list a {
+          white-space: nowrap !important;
+          word-break: normal !important;
+        }
+
+        .toc-card {
+          overflow: visible;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+        }
+
+        .split-analysis,
+        .split-2,
+        .split-flow,
+        .glass-card[style*="grid-template-columns"],
+        div.split-2[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+          gap: 22px !important;
+        }
+
+        .nav {
+          min-height: auto;
+          padding: 14px 0;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-card,
+        .glass-card,
+        .goal-card,
+        .headline-panel {
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: 2.45rem;
+        }
+
+        .hero h1 .soft {
+          font-size: 1.38rem;
+        }
+
+        .lead,
+        .section-intro,
+        .goal-card p {
+          font-size: 1rem;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .highlight-box {
+          grid-template-columns: 1fr;
+        }
+
+        .priority-body {
+          padding: 22px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .container {
+          width: min(var(--max), 100%);
+        }
+
+        .hero-card,
+        .glass-card,
+        .goal-card,
+        .headline-panel {
+          padding: 16px;
+        }
+
+        h1 {
+          font-size: clamp(1.85rem, 9vw, 2.35rem);
+        }
+      }
+
+      p, li, span {
+        color: var(--wcag-text) !important;
+      }
+
+    </style>
+    <link rel="stylesheet" href="topbar-shared.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="casestudy-mobile.css" />
+    <style id="newmom-ui-polish">
+      /* Light glass topbar on pink case study */
+      body.case-study-newmom .topbar {
+        background: rgba(255, 247, 252, 0.78) !important;
+        border-bottom: 1px solid rgba(122, 31, 86, 0.1) !important;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.75),
+          0 10px 28px rgba(122, 31, 86, 0.06) !important;
+        backdrop-filter: blur(18px) saturate(1.4) !important;
+        -webkit-backdrop-filter: blur(18px) saturate(1.4) !important;
+      }
+
+      body.case-study-newmom .topbar .brand {
+        color: var(--wcag-text, #2f1d2b) !important;
+      }
+
+      body.case-study-newmom .topbar .brand-name {
+        color: #2f1d2b !important;
+      }
+
+      body.case-study-newmom .topbar .brand-portfolio {
+        color: var(--accent-warm, #ff8c00) !important;
+        opacity: 1 !important;
+      }
+
+      body.case-study-newmom .topbar .nav-back {
+        color: #2f1d2b !important;
+        border: none !important;
+      }
+
+      body.case-study-newmom .topbar .nav-back:hover {
+        background: rgba(122, 31, 86, 0.08) !important;
+        color: #7a1f56 !important;
+      }
+
+      /* Horizontal TOC: clip third pill at viewport edge */
+      @media (max-width: 1180px) {
+        body.case-study-newmom #main-content > .container.layout {
+          overflow: visible !important;
+        }
+
+        body.case-study-newmom #main-content .side-nav {
+          position: sticky;
+          width: 100vw;
+          max-width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          padding-left: max(var(--case-study-page-gutter), env(safe-area-inset-left, 0px));
+          padding-right: 0;
+          box-sizing: border-box;
+        }
+
+        body.case-study-newmom #main-content .toc-card {
+          padding-right: 0;
+          max-width: none;
+        }
+
+        body.case-study-newmom #main-content .toc-scroll-hint {
+          display: flex !important;
+          justify-content: flex-end;
+          padding-right: max(var(--case-study-page-gutter), env(safe-area-inset-right, 0px));
+        }
+
+        body.case-study-newmom #main-content .toc-scroll-track {
+          width: 100%;
+          max-width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x proximity;
+          padding-bottom: 10px;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(122, 31, 86, 0.35) transparent;
+          -webkit-mask-image: linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 40px),
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 40px),
+            transparent 100%
+          );
+        }
+
+        body.case-study-newmom #main-content .toc-scroll-track .toc-list {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 10px !important;
+          width: max-content !important;
+          min-width: max-content !important;
+          padding-right: 1.25rem !important;
+          margin: 0 !important;
+        }
+
+        body.case-study-newmom #main-content .toc-scroll-track .toc-list li {
+          flex: 0 0 auto !important;
+        }
+
+        body.case-study-newmom #main-content .toc-scroll-track .toc-list a {
+          display: inline-block !important;
+          white-space: nowrap !important;
+          padding: 9px 14px !important;
+          scroll-snap-align: start;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="case-study-mobile case-study-newmom">
+    <header class="topbar">
+      <div class="topbar-inner topbar-inner--case">
+        <div class="nav-start">
+          <button
+            type="button"
+            class="nav-back"
+            aria-label="Tillbaka till föregående sida"
+            onclick="history.back()"
+          >
+            <span aria-hidden="true">←</span>
+          </button>
+          <a
+            class="brand"
+            href="homepage.html#home"
+            aria-label="Ida Kilander – startsida"
+          >
+            <span class="brand-name">Ida Kilander</span>
+            <span class="brand-portfolio">Portfolio</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-card fade-up">
+            <div>
+              <div class="eyebrow">Case study · Mobile app design</div>
+
+              <h1 id="hero-title">
+                <span>New mom</span>
+                <span class="soft">Supporting New Mothers in Returning to Exercise</span>
+              </h1>
+
+              <p class="lead">
+                This UX project explores how digital solutions can help new mothers safely return to physical activity after childbirth. The goal was to design a mobile app that provides flexible workouts, personalized recovery programs and motivational support.
+              </p>
+            </div>
+
+            <div class="hero-media">
+              <img src="newmomapp.png" alt="New mom app preview" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container layout">
+        <aside class="side-nav" aria-label="Case study navigation">
+          <nav class="toc-card">
+            <p class="toc-label">On this page</p>
+            <p class="toc-scroll-hint" aria-hidden="true">
+              <span class="toc-scroll-arrow">→</span>
+            </p>
+            <div class="toc-scroll-track" tabindex="0" aria-label="Avsnitt på sidan, svep horisontellt">
+              <ul class="toc-list">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#research-insights">Research, analysis &amp; insights</a></li>
+                <li><a href="#ideation">Ideation</a></li>
+                <li><a href="#design-solution">Design solution</a></li>
+                <li><a href="#structure-flows">Structure &amp; flows</a></li>
+                <li><a href="#wireframes">Wireframes</a></li>
+                <li><a href="#testing">Testing</a></li>
+                <li><a href="#final-wireframes">Final wireframes</a></li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <div class="content-main">
+          <section id="overview" aria-labelledby="overview-title">
+            <h2 class="section-title fade-up" id="overview-title">Project overview</h2>
+            <div class="grid-3">
+              <article class="glass-card soft-card fade-up">
+                <div class="card-heading">
+                  <h3>Info</h3>
+                </div>
+                <ul class="meta-list">
+                  <li><strong>Duration:</strong> 8 weeks</li>
+                  <li><strong>Type:</strong> UX design project</li>
+                  <li><strong>Team:</strong> Ida Kilander & Josephine Mörner</li>
+                </ul>
+              </article>
+
+              <article class="glass-card soft-card fade-up">
+                <div class="card-heading">
+                  <h3>My role</h3>
+                </div>
+                <ul class="bullet-list">
+                  <li>UX Research</li>
+                  <li>Synthesis of insights</li>
+                  <li>User flows</li>
+                  <li>Wireframing</li>
+                  <li>Usability testing</li>
+                </ul>
+              </article>
+
+              <article class="glass-card soft-card fade-up">
+                <div class="card-heading">
+                  <h3>Deliverables</h3>
+                </div>
+                <ul class="bullet-list">
+                  <li>Research plan</li>
+                  <li>Problem definition</li>
+                  <li>Low-fidelity wireframes</li>
+                  <li>Usability testing</li>
+                  <li>Mid-high fidelity wireframes</li>
+                </ul>
+              </article>
+            </div>
+
+            <article class="glass-card goal-card soft-purple fade-up">
+              <h3>Goal</h3>
+              <p>
+                The goal of this project was to design a mobile app that helps new mothers safely return to physical activity after childbirth. The app needed to provide accessible workouts that fit into a busy schedule while also addressing postpartum recovery needs.
+              </p>
+            </article>
+          </section>
+
+          <section id="process" aria-labelledby="process-title">
+            <div class="section-chip">Design thinking</div>
+            <h2 class="section-title fade-up" id="process-title">Design thinking process</h2>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="process-grid">
+                <div class="process-item">
+                  <h3>Empathise</h3>
+                  <div class="process-icon"><i data-lucide="heart"></i></div>
+                </div>
+
+                <div class="process-item">
+                  <h3>Define</h3>
+                  <div class="process-icon"><i data-lucide="search"></i></div>
+                </div>
+
+                <div class="process-item">
+                  <h3>Ideate</h3>
+                  <div class="process-icon"><i data-lucide="lightbulb"></i></div>
+                </div>
+
+                <div class="process-item">
+                  <h3>Prototype</h3>
+                  <div class="process-icon"><i data-lucide="wrench"></i></div>
+                </div>
+
+                <div class="process-item">
+                  <h3>Test</h3>
+                  <div class="process-icon"><i data-lucide="clipboard-check"></i></div>
+                </div>
+
+                <div class="process-item">
+                  <h3>Implement</h3>
+                  <div class="process-icon"><i data-lucide="rocket"></i></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card headline-panel soft-card section-block fade-up">
+              <h3>Research</h3>
+              <p>
+                The project started with a research phase to understand the needs and challenges of women returning to exercise after childbirth. The research focused on mothers 6–12 months postpartum.
+              </p>
+            </article>
+
+            <div class="section-block">
+              <h3 class="fade-up" style="margin: 0 0 22px; font-size: 2rem; font-weight: 600; letter-spacing: -0.03em;">
+                Research methods
+              </h3>
+
+              <p class="fade-up" style="margin: 0 0 24px;">
+                <a
+                  href="Uxstudy.pdf"
+                  download="Uxstudy.pdf"
+                  style="color: var(--wcag-accent) !important; font-weight: 600; text-decoration: underline;"
+                  >Download full Research case study</a>
+              </p>
+
+              <div class="grid-3">
+                <article class="glass-card soft-pink fade-up">
+                  <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Interviews</h4>
+                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Interviews with new mothers</p>
+                </article>
+
+                <article class="glass-card soft-pink fade-up">
+                  <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Literature Review</h4>
+                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Postpartum recovery and exercise safety</p>
+                </article>
+
+                <article class="glass-card soft-pink fade-up">
+                  <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Competitive Analysis</h4>
+                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Analysis of existing postnatal fitness apps</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section id="research-insights" aria-labelledby="research-insights-title">
+            <div class="section-chip">Research</div>
+            <h2 class="section-title fade-up" id="research-insights-title">Research, analysis &amp; insights</h2>
+
+            <div class="glass-card image-card fade-up section-block">
+              <img
+                src="hand.png"
+                alt="Hand holding the New Mom app interface with problem and solution overview"
+              />
+            </div>
+
+            <div class="section-chip">Making sense of research</div>
+
+            <article class="glass-card soft-card split-analysis fade-up" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;">
+              <div>
+                <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">
+                  Collecting & Analysing data
+                </h2>
+
+                <p style="color:#4b5563; line-height:1.8; font-size:1.05rem; max-width:520px;">
+                  Research data was organised using affinity mapping to identify patterns, themes, and user pain points.
+                </p>
+
+                <ul class="pill-list">
+                  <li>Spreadsheets</li>
+                  <li>Affinity mapping</li>
+                  <li>Pain point mapping</li>
+                </ul>
+              </div>
+
+              <div class="media-frame">
+                <img src="affinity.png" alt="Affinity mapping research board" />
+              </div>
+            </article>
+
+            <article class="glass-card soft-card split-analysis fade-up" style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+              <div>
+                <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Empathy map</h2>
+                <p style="color:#4b5563; line-height:1.8; font-size:1.05rem; max-width:520px;">
+                  An empathy map was created to better understand users’ thoughts, feelings, and challenges during postpartum recovery.
+                </p>
+              </div>
+
+              <div class="media-frame">
+                <img src="empathy.png" alt="Empathy map for postpartum recovery user" />
+              </div>
+            </article>
+
+            <div class="section-chip">Research synthesis</div>
+
+            <article class="glass-card soft-card split-2 fade-up" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;">
+              <div>
+                <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">
+                  Key Findings from Research
+                </h2>
+
+                <p style="color:#4b5563; line-height:1.8; max-width:520px;">
+                  Research identified several barriers preventing new mothers from returning to exercise after childbirth.
+                </p>
+
+                <div class="grid-2" style="margin-top:26px;">
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Limited Time</strong>
+                    <p>New mothers have little time and energy for exercise.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Uncertainty</strong>
+                    <p>Many mothers are unsure which exercises are safe.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Recovery Varies</strong>
+                    <p>Recovery depends on delivery type and physical condition.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Low Motivation</strong>
+                    <p>Motivation drops without support or progress tracking.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <img src="gubbe.png" alt="Research findings illustration" style="width:100%; border-radius:18px;" />
+              </div>
+            </article>
+
+            <article class="glass-card soft-card split-2 fade-up" style="margin-top:40px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;">
+              <div>
+                <img src="boklampa.png" alt="Key insights illustration" style="width:100%; border-radius:18px;" />
+              </div>
+
+              <div>
+                <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">Key Insights</h2>
+                <p style="color:#4b5563; line-height:1.8; max-width:520px;">
+                  These findings revealed several opportunities for the design.
+                </p>
+
+                <div class="grid-2" style="margin-top:24px;">
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Safety Builds Confidence</strong>
+                    <p>Users need guidance on safe postpartum exercises.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Flexibility is Key</strong>
+                    <p>Workouts must be short and adaptable.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Personalisation Matters</strong>
+                    <p>Training must adapt to individual recovery.</p>
+                  </div>
+
+                  <div class="glass-card mini-card soft-card">
+                    <strong>Support Drives Motivation</strong>
+                    <p>Community and progress tracking increase engagement.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card soft-card section-block fade-up">
+              <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">Persona</h2>
+
+              <p style="color:#4b5563; line-height:1.8; max-width:760px; margin-bottom:28px;">
+                Based on the research findings, a primary persona was created to represent the needs and challenges of the target users. The persona helped guide design decisions throughout the project and ensured the solution focused on real user needs.
+              </p>
+
+              <div class="persona-grid">
+                <div class="glass-card center-card soft-card">
+                  <img src="persona1.png" alt="Persona Anna" class="persona-avatar" />
+                  <h3 style="margin:16px 0 8px;">Anna, 34 – New Mother</h3>
+                  <p style="color:#4b5563; font-size:0.95rem; line-height:1.75; margin:0;">
+                    Anna is a first-time mother who wants to regain her strength and well-being after pregnancy. She wants to stay active but struggles to balance exercise with the demands of caring for her newborn.
+                  </p>
+                </div>
+
+                <div class="glass-card soft-card">
+                  <h3 style="margin:0 0 10px;">Goals</h3>
+                  <ul style="color:#4b5563; line-height:1.9; margin:0;">
+                    <li>Regain strength and fitness after childbirth</li>
+                    <li>Improve overall well-being and confidence</li>
+                    <li>Find workouts that fit into a busy daily routine</li>
+                  </ul>
+                </div>
+
+                <div class="glass-card soft-card">
+                  <h3 style="margin:0 0 10px;">Frustrations</h3>
+                  <ul style="color:#4b5563; line-height:1.9; margin:0;">
+                    <li>Unsure which exercises are safe after childbirth</li>
+                    <li>Limited time and energy for long workouts</li>
+                    <li>Lack of guidance tailored to postpartum recovery</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                Primary persona representing new mothers returning to exercise after childbirth.
+              </div>
+            </article>
+          </section>
+
+          <section id="ideation" aria-labelledby="ideation-title">
+            <div class="section-chip">From insight to concept</div>
+
+            <article class="glass-card soft-card fade-up">
+              <div class="split-2" style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:start;">
+                <div>
+                  <h2 id="ideation-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">
+                    How the Insights Informed the Design
+                  </h2>
+                </div>
+
+                <div class="feature-cards">
+                  <div class="glass-card center-card soft-pink mini-card">
+                    <div class="icon-emoji">🛡️</div>
+                    <strong>Safe Postpartum Training</strong>
+                    <p>Workouts include clear guidance to ensure safe postpartum exercise.</p>
+                  </div>
+
+                  <div class="glass-card center-card soft-pink mini-card">
+                    <div class="icon-emoji">🕒</div>
+                    <strong>Short & Flexible Workouts</strong>
+                    <p>Designed to fit into unpredictable routines.</p>
+                  </div>
+
+                  <div class="glass-card center-card soft-pink mini-card">
+                    <div class="icon-emoji">💗</div>
+                    <strong>Personalised Programs</strong>
+                    <p>Workouts adapt to different recovery needs.</p>
+                  </div>
+
+                  <div class="glass-card center-card soft-pink mini-card">
+                    <div class="icon-emoji">✏️</div>
+                    <strong>Simple & Intuitive Interface</strong>
+                    <p>Users can quickly find and start workouts.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-card soft-card section-block fade-up">
+              <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Ideation</h2>
+
+              <p style="margin:0; max-width:900px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+                During the ideation phase, brainstorming and concept development were used to explore solutions based on the research insights and persona needs.
+              </p>
+
+              <p style="margin:30px 0 18px; font-weight:600; color:#374151;">Three concepts were developed:</p>
+
+              <div class="concept-grid">
+                <article class="glass-card soft-pink">
+                  <img src="concept1.png" alt="Social support concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
+                  <strong style="display:block; margin-bottom:8px;">Social Support App</strong>
+                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">A platform where new mothers could connect and motivate each other.</p>
+                </article>
+
+                <article class="glass-card soft-pink">
+                  <img src="concept-2.png" alt="Customized postpartum training app concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
+                  <strong style="display:block; margin-bottom:8px;">Customized Postnatal Training App</strong>
+                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">Personalised workout programs adapted to postpartum recovery.</p>
+                </article>
+
+                <article class="glass-card soft-pink">
+                  <img src="concept-3.png" alt="Nutrition and wellness hub concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
+                  <strong style="display:block; margin-bottom:8px;">Nutrition and Wellness Hub</strong>
+                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">A solution combining fitness, nutrition guidance, and well-being support.</p>
+                </article>
+              </div>
+
+              <p style="margin:30px 0 18px; color:#4b5563; line-height:1.8;">
+                The concepts were evaluated to determine which solution best addressed the user needs.
+              </p>
+
+              <article class="glass-card soft-pink">
+                <h3 style="margin:0 0 14px; font-size:1.4rem;">Concept Selection</h3>
+
+                <p style="margin:0 0 20px; color:#4b5563; line-height:1.8; max-width:700px;">
+                  After evaluating the three concepts, the Customized Postnatal Training App was selected as the final direction.
+                </p>
+
+                <img src="skiss.png" alt="Low-fidelity wireframes of the selected concept" style="width:100%; border-radius:18px; margin-bottom:20px;" />
+
+                <div class="highlight-box">
+                  <div>
+                    <p style="margin:0 0 8px; font-weight:700; color:#166534;">● Selected Concept</p>
+                    <h4 style="margin:0; font-size:1.3rem;">Customized Postnatal Training App</h4>
+                  </div>
+
+                  <ul style="margin:0; color:#4b5563; line-height:1.9; padding-left:20px;">
+                    <li>Safe postpartum exercises</li>
+                    <li>Personalized workout programs</li>
+                    <li>Flexible workouts for busy routines</li>
+                  </ul>
+                </div>
+
+                <p style="margin:18px 0 0; color:#4b5563; line-height:1.8; max-width:760px;">
+                  The solution focuses on guided workouts tailored to different recovery stages, helping users regain strength and confidence after childbirth.
+                </p>
+              </article>
+            </article>
+          </section>
+
+          <section id="design-solution" aria-labelledby="solution-title">
+            <div class="section-chip">Final direction</div>
+
+            <article class="glass-card soft-card fade-up">
+              <h2 id="solution-title" style="margin:0 0 24px; font-size:2.5rem; letter-spacing:-0.04em;">
+                Design Solution
+              </h2>
+
+              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 14px;">
+                After selecting the concept, the design was developed through feature prioritisation, user flows, and wireframes.
+              </p>
+
+              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 48px;">
+                Using the MoSCoW method, core features were defined and two key flows were mapped: starting a workout and setting a goal.
+              </p>
+
+              <h3 style="margin:0 0 22px; font-size:2rem; font-weight:600; letter-spacing:-0.03em;">
+                Feature Prioritisation
+              </h3>
+
+              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 34px;">
+                To translate the research insights into a focused design solution, the app’s features were prioritised using the MoSCoW method.
+              </p>
+
+              <div class="priority-grid">
+                <article class="glass-card priority-card must">
+                  <div class="priority-head">
+                    <h4>Must have</h4>
+                  </div>
+                  <div class="priority-body">
+                    <ul>
+                      <li>Exercise library</li>
+                      <li>Customized training programs</li>
+                      <li>Postpartum safety guidelines</li>
+                      <li>Clear workout instructions</li>
+                      <li>Goal setting and progress tracking</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article class="glass-card priority-card should">
+                  <div class="priority-head">
+                    <h4>Should Have</h4>
+                  </div>
+                  <div class="priority-body">
+                    <ul>
+                      <li>Community features</li>
+                      <li>Expert guidance</li>
+                      <li>Flexible training options</li>
+                      <li>Voice guidance</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article class="glass-card priority-card could">
+                  <div class="priority-head">
+                    <h4>Could have</h4>
+                  </div>
+                  <div class="priority-body">
+                    <ul>
+                      <li>Social sharing</li>
+                      <li>Meal plans</li>
+                      <li>Push notifications</li>
+                      <li>Celebrating small wins</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article class="glass-card priority-card wont">
+                  <div class="priority-head">
+                    <h4>Wont have</h4>
+                  </div>
+                  <div class="priority-body">
+                    <ul>
+                      <li>Advanced workout features</li>
+                      <li>Live workouts</li>
+                      <li>Tech support</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+            </article>
+          </section>
+
+          <section id="structure-flows" aria-labelledby="structure-flows-title">
+            <div class="section-chip">Structure and flow</div>
+
+            <article class="glass-card soft-card split-flow fade-up" style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:40px; align-items:center;">
+              <div>
+                <h2 id="structure-flows-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Structure &amp; flows</h2>
+
+                <p style="margin:0; color:#4b5563; line-height:1.8; font-size:1.02rem; max-width:500px;">
+                  Key user flows were mapped out to define how users would navigate the app and complete important tasks.
+                </p>
+
+                <ul class="pill-list">
+                  <li>Create a profile</li>
+                  <li>Find a workout</li>
+                  <li>Start a session</li>
+                  <li>Set and track goals</li>
+                </ul>
+
+                <p style="margin:0; color:#4b5563; line-height:1.8; font-size:1.02rem; max-width:520px;">
+                  These flows guided the structure of the wireframes and helped keep the experience simple and intuitive.
+                </p>
+              </div>
+
+              <div>
+                <img src="userflows.png" alt="User flows showing the core journey through the app" style="width:100%; border-radius:18px; box-shadow:0 18px 40px rgba(0,0,0,0.08);" />
+                <p class="figure-note">User flows showing the core journey through the app.</p>
+              </div>
+            </article>
+          </section>
+
+          <section id="wireframes" aria-labelledby="wireframes-title">
+            <div class="section-chip">Wireframes</div>
+
+            <article class="glass-card soft-card section-block fade-up">
+              <h2 id="wireframes-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Wireframes</h2>
+
+              <p style="margin:0; max-width:640px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+                Based on the prioritised features and user flows, low-fidelity wireframes were created to explore the structure and navigation of the app.
+              </p>
+
+              <p style="margin:26px 0 0; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+                The wireframes focused on the core user journey, including:
+              </p>
+
+              <ul class="pill-list">
+                <li>Profile setup</li>
+                <li>Home screen with recommended workouts</li>
+                <li>Exercise library</li>
+                <li>Guided workout session</li>
+                <li>Goals and progress tracking</li>
+              </ul>
+
+              <p style="margin:0 0 28px; max-width:700px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+                The goal was to ensure users could quickly find workouts and start exercising in a simple and intuitive way.
+              </p>
+
+              <div class="glass-card soft-purple" style="padding:20px;">
+              </div>
+
+              <div class="glass-card soft-pink" style="margin-top:24px; padding:20px;">
+                <img src="mid-wireframes.png" alt="Mid-fidelity wireframes showing the core screens of the New Mom app" style="width:100%; border-radius:18px;" />
+              </div>
+            </article>
+          </section>
+
+          <section id="testing" aria-labelledby="testing-title">
+            <div class="section-chip">Evaluation and refinement</div>
+
+            <article class="glass-card soft-card fade-up">
+              <h2 id="testing-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">
+                Usability testing
+              </h2>
+
+              <p style="max-width:800px; color:#4b5563; line-height:1.8;">
+                Usability testing was conducted to evaluate how easily users could navigate the wireframes and complete key tasks in the app. The goal was to identify usability issues and understand how well the design supported the needs of new mothers.
+              </p>
+
+              <p style="max-width:800px; color:#4b5563; line-height:1.8;">
+                A moderated usability test was carried out where participants were asked to complete tasks such as creating a profile, finding a workout, starting a session, and view their progress.
+              </p>
+
+              <p style="max-width:800px; color:#4b5563; line-height:1.8; margin-bottom:26px;">
+                The testing revealed that while the overall structure was easy to understand, some elements needed clearer labels and stronger visual hierarchy to improve navigation and usability.
+              </p>
+
+              <img src="usertestmom.png" alt="Usability testing wireframes" style="width:100%; border-radius:18px;" />
+
+              <p class="figure-note">
+                Usability testing used to evaluate how users interacted with the wireframes.
+              </p>
+            </article>
+
+            <article class="glass-card soft-card split-2 fade-up" style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
+              <div>
+                <h2 style="margin:0 0 16px; font-size:2rem; letter-spacing:-0.03em;">Results & Improvements</h2>
+
+                <p style="color:#4b5563; line-height:1.8;">
+                  Usability testing showed that users were generally able to complete the tasks, but also revealed some areas for improvement.
+                </p>
+
+                <p style="color:#4b5563; line-height:1.8;">
+                  Some participants suggested adding more steps in the onboarding process to make it clearer what goals and preferences they selected. The testing also highlighted that the “Recommended for you” card was difficult to identify, as it looked similar to the other exercise cards and needed stronger visual hierarchy.
+                </p>
+
+                <p style="color:#4b5563; line-height:1.8;">
+                  These insights helped identify improvements for future iterations of the design.
+                </p>
+              </div>
+
+              <div>
+                <img src="keyimprov.png" alt="Key improvements identified through usability testing" style="width:100%; border-radius:18px;" />
+                <p class="figure-note">Key improvements identified through usability testing.</p>
+              </div>
+            </article>
+          </section>
+
+          <section id="final-wireframes" aria-labelledby="final-wireframes-title">
+            <div class="section-chip">Final deliverables</div>
+
+            <article class="glass-card soft-card section-block fade-up">
+              <h2 id="final-wireframes-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Final wireframes</h2>
+
+              <img
+                src="färger.png"
+                alt="Design system colors for the New Mom app"
+                style="width:100%; border-radius:18px; margin-bottom:40px;"
+              />
+
+              <h3 style="margin:0 0 18px; font-size:1.35rem; letter-spacing:-0.02em;">High fidelity</h3>
+
+              <img src="high-fidelity.png" alt="High fidelity wireframes of the New Mom app" style="width:100%; border-radius:18px;" />
+            </article>
+          </section>
+
+          <div class="footer-space"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+
+      const tocLinks = document.querySelectorAll(".toc-list a");
+      const sections = [...tocLinks]
+        .map(link => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function setActiveTocSection(sectionId) {
+        if (!sectionId) return;
+        tocLinks.forEach(item => item.classList.remove("active"));
+        const link = document.querySelector('.toc-list a[href="#' + sectionId + '"]');
+        if (link) link.classList.add("active");
+      }
+
+      function updateActiveTocFromScroll() {
+        const activateLine = 148;
+        let currentSection = sections[0];
+
+        sections.forEach(section => {
+          if (section.getBoundingClientRect().top <= activateLine) {
+            currentSection = section;
+          }
+        });
+
+        setActiveTocSection(currentSection.getAttribute("id"));
+      }
+
+      let tocScrollPending = false;
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (tocScrollPending) return;
+          tocScrollPending = true;
+          requestAnimationFrame(() => {
+            updateActiveTocFromScroll();
+            tocScrollPending = false;
+          });
+        },
+        { passive: true }
+      );
+
+      window.addEventListener("resize", updateActiveTocFromScroll);
+      updateActiveTocFromScroll();
+
+      const fadeEls = document.querySelectorAll(".fade-up");
+
+      const fadeObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      fadeEls.forEach(el => fadeObserver.observe(el));
+    </script>
+  </body>
+</html>

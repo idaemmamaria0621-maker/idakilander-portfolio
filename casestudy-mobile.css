@@ -1,0 +1,368 @@
+/**
+ * casestudy-mobile.css — Shared mobile layout for case study pages
+ * Load after responsive.css on newmom.html, injuryapp.html, iwab.html, etc.
+ */
+
+/* Desktop sidebar: hide swipe UI */
+@media (min-width: 1181px) {
+  body.case-study-mobile .toc-scroll-hint {
+    display: none;
+  }
+
+  body.case-study-mobile .toc-scroll-track {
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  body.case-study-mobile .toc-scroll-track .toc-list {
+    display: grid !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  body.case-study-mobile #main-content .toc-card {
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+
+  /* Injury app — white badges on dark background */
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a {
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a.active {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-arrow {
+    color: #ffffff !important;
+  }
+
+  /* Light case studies (New Mom, Ivrell) — black badges */
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a,
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a:visited,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a:visited {
+    color: #111111 !important;
+    border: 1px solid #111111 !important;
+    background: rgba(17, 17, 17, 0.06) !important;
+    opacity: 1 !important;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a.active,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a.active {
+    color: #111111 !important;
+    border-color: #111111 !important;
+    background: rgba(17, 17, 17, 0.12) !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-arrow,
+  body.case-study-iwab #main-content .toc-scroll-arrow {
+    color: #111111 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  body.case-study-mobile #main-content .hero > .container,
+  body.case-study-mobile #main-content > .container.layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  body.case-study-mobile #main-content > .container.layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  body.case-study-mobile #main-content .content-main {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: visible !important;
+  }
+
+  /* Stack all multi-column blocks vertically */
+  body.case-study-mobile #main-content .grid-3,
+  body.case-study-mobile #main-content .grid-2,
+  body.case-study-mobile #main-content .concept-grid,
+  body.case-study-mobile #main-content .persona-grid,
+  body.case-study-mobile #main-content .persona-grid-custom,
+  body.case-study-mobile #main-content .process-grid,
+  body.case-study-mobile #main-content .feature-cards,
+  body.case-study-mobile #main-content .priority-grid,
+  body.case-study-mobile #main-content .highlight-box,
+  body.case-study-mobile #main-content .foundation-row,
+  body.case-study-mobile #main-content .foundation-row--basics,
+  body.case-study-mobile #main-content .foundation-row--split,
+  body.case-study-mobile #main-content .foundation-row--timeline,
+  body.case-study-mobile #main-content .final-grid,
+  body.case-study-mobile #main-content .hifi-pair,
+  body.case-study-mobile #main-content .hifi-grid-2,
+  body.case-study-mobile #main-content .wireframe-grid,
+  body.case-study-mobile #main-content .responsibilities-grid,
+  body.case-study-mobile #main-content .final-columns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.case-study-mobile #main-content .grid-3 > *,
+  body.case-study-mobile #main-content .grid-2 > *,
+  body.case-study-mobile #main-content .concept-grid > *,
+  body.case-study-mobile #main-content .persona-grid > *,
+  body.case-study-mobile #main-content .persona-grid-custom > *,
+  body.case-study-mobile #main-content .process-grid > *,
+  body.case-study-mobile #main-content .feature-cards > *,
+  body.case-study-mobile #main-content .priority-grid > *,
+  body.case-study-mobile #main-content .highlight-box > *,
+  body.case-study-mobile #main-content .foundation-row > *,
+  body.case-study-mobile #main-content .final-grid > *,
+  body.case-study-mobile #main-content .hifi-pair > *,
+  body.case-study-mobile #main-content .hifi-grid-2 > *,
+  body.case-study-mobile #main-content .wireframe-grid > *,
+  body.case-study-mobile #main-content .responsibilities-grid > *,
+  body.case-study-mobile #main-content .final-columns > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body.case-study-mobile {
+    overflow-x: hidden;
+  }
+
+  body.case-study-mobile #main-content {
+    padding-inline: max(14px, env(safe-area-inset-left, 0px)) !important;
+    overflow-x: clip;
+    box-sizing: border-box;
+  }
+
+  body.case-study-mobile #main-content .content-main > section {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.case-study-mobile #main-content .glass-card,
+  body.case-study-mobile #main-content .soft-card,
+  body.case-study-mobile #main-content .goal-card,
+  body.case-study-mobile #main-content .headline-panel,
+  body.case-study-mobile #main-content .image-card,
+  body.case-study-mobile #main-content .foundation-card,
+  body.case-study-mobile #main-content .persona-case-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* Inline grid + split layouts → one column */
+  body.case-study-mobile #main-content article[style*="grid-template-columns"],
+  body.case-study-mobile #main-content div[style*="grid-template-columns"],
+  body.case-study-mobile #main-content .split-2,
+  body.case-study-mobile #main-content .split-analysis,
+  body.case-study-mobile #main-content .split-flow,
+  body.case-study-mobile #main-content .split-heroish,
+  body.case-study-mobile #main-content .foundation-row--split {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    grid-template-columns: unset !important;
+  }
+
+  body.case-study-mobile #main-content article[style*="grid-template-columns"] > *,
+  body.case-study-mobile #main-content div[style*="grid-template-columns"] > *,
+  body.case-study-mobile #main-content .split-2 > *,
+  body.case-study-mobile #main-content .split-analysis > *,
+  body.case-study-mobile #main-content .split-flow > *,
+  body.case-study-mobile #main-content .split-heroish > *,
+  body.case-study-mobile #main-content .foundation-row--split > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.case-study-mobile #main-content img,
+  body.case-study-mobile #main-content video {
+    display: block;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  body.case-study-mobile #main-content .media-frame,
+  body.case-study-mobile #main-content .image-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 12px !important;
+  }
+
+  body.case-study-mobile #main-content .section-title,
+  body.case-study-mobile #main-content h2[style*="font-size"] {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  body.case-study-mobile #main-content .meta-list li,
+  body.case-study-mobile #main-content .bullet-list li,
+  body.case-study-mobile #main-content p,
+  body.case-study-mobile #main-content li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  body.case-study-mobile #main-content #overview .grid-3 .glass-card {
+    padding: 1.15rem 1rem !important;
+  }
+
+  body.case-study-mobile #main-content .process-icon {
+    min-height: 88px;
+  }
+
+  body.case-study-mobile #main-content .persona-avatar {
+    width: 112px;
+    height: 112px;
+  }
+
+  body.case-study-mobile #main-content .project-hero-image,
+  body.case-study-mobile #main-content .desktop-image,
+  body.case-study-mobile #main-content .mobile-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  body.case-study-mobile #main-content .desktop-frame,
+  body.case-study-mobile #main-content .mobile-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.case-study-mobile #main-content .timeline-flow {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.case-study-mobile #main-content .glass-card,
+  body.case-study-mobile #main-content .goal-card {
+    padding: 1rem !important;
+  }
+
+  body.case-study-mobile #main-content .section-chip {
+    font-size: 0.7rem;
+  }
+
+  /* Phones: reinforce light case study black TOC */
+  html body.case-study-newmom #main-content .toc-scroll-track .toc-list a,
+  html body.case-study-newmom #main-content .toc-scroll-track .toc-list a:hover,
+  html body.case-study-newmom #main-content .toc-scroll-track .toc-list a.active,
+  html body.case-study-newmom #main-content .toc-scroll-track .toc-list a:visited,
+  html body.case-study-iwab #main-content .toc-scroll-track .toc-list a,
+  html body.case-study-iwab #main-content .toc-scroll-track .toc-list a:hover,
+  html body.case-study-iwab #main-content .toc-scroll-track .toc-list a.active,
+  html body.case-study-iwab #main-content .toc-scroll-track .toc-list a:visited {
+    color: #111111 !important;
+    border-color: #111111 !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+  }
+
+  html body.case-study-newmom #main-content .toc-scroll-arrow,
+  html body.case-study-iwab #main-content .toc-scroll-arrow {
+    color: #111111 !important;
+  }
+}
+
+/* ==========================================================================
+   Case study mobile page gutters (~20px / px-5)
+   ========================================================================== */
+
+:root {
+  --case-study-page-gutter: 20px;
+}
+
+@media (max-width: 992px) {
+  body.case-study-newmom #main-content,
+  body.case-study-iwab #main-content,
+  body.case-study-injuryapp #main-content {
+    padding-left: max(var(--case-study-page-gutter), env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(var(--case-study-page-gutter), env(safe-area-inset-right, 0px)) !important;
+    box-sizing: border-box !important;
+  }
+
+  body.case-study-newmom #main-content > .container,
+  body.case-study-newmom #main-content > .container.layout,
+  body.case-study-newmom #main-content .hero > .container,
+  body.case-study-iwab #main-content > .container,
+  body.case-study-iwab #main-content > .container.layout,
+  body.case-study-iwab #main-content .hero > .container,
+  body.case-study-injuryapp #main-content > .container,
+  body.case-study-injuryapp #main-content > .container.layout,
+  body.case-study-injuryapp #main-content .hero > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.case-study-newmom .topbar-inner.topbar-inner--case,
+  body.case-study-iwab .topbar-inner.topbar-inner--case,
+  body.case-study-injuryapp .topbar-inner.topbar-inner--case {
+    width: min(100%, calc(100% - (var(--case-study-page-gutter) * 2))) !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  body.case-study-newmom #main-content .side-nav,
+  body.case-study-iwab #main-content .side-nav {
+    padding-left: max(var(--case-study-page-gutter), env(safe-area-inset-left, 0px));
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-hint,
+  body.case-study-iwab #main-content .toc-scroll-hint {
+    padding-right: max(var(--case-study-page-gutter), env(safe-area-inset-right, 0px));
+  }
+}

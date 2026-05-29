@@ -1,0 +1,303 @@
+/**
+ * homepage-mobile.css — Homepage mobile layout
+ * Load on homepage.html (homepage does not use responsive.css)
+ */
+
+@media (max-width: 992px) {
+  body.page-homepage .cta-row {
+    display: block;
+  }
+
+  body.page-homepage .cta-row .btn-primary {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.page-homepage .main {
+    padding-top: 0.75rem;
+    padding-bottom: 0;
+  }
+
+  body.page-homepage .projects-section {
+    padding-block: clamp(0.75rem, 2vh, 1.35rem) clamp(1.75rem, 4vh, 2.75rem);
+  }
+
+  body.page-homepage .hero-copy {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  body.page-homepage .hero-copy .cta-row a.btn-primary {
+    padding: 0.9rem 2.25rem;
+    text-align: center;
+  }
+
+  body.page-homepage .projects-section__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  body.page-homepage .project-showcase__inner {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    align-items: stretch;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: clamp(1.15rem, 3.5vw, 1.75rem);
+    gap: 1.25rem;
+  }
+
+  body.page-homepage .project-showcase__media {
+    order: -1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  body.page-homepage .project-showcase--glass .project-showcase__media {
+    padding: clamp(0.85rem, 3vw, 1.35rem);
+  }
+
+  body.page-homepage .project-showcase__text {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  body.page-homepage .project-showcase__title {
+    margin-top: 0.85rem;
+  }
+
+  body.page-homepage .project-showcase__hint {
+    margin-top: 0.5rem;
+    padding-top: 0.85rem;
+    padding-bottom: 1.15rem;
+  }
+
+  body.page-homepage .project-showcase__media img {
+    display: block;
+    width: min(100%, 320px);
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  body.page-homepage .project-showcase__title,
+  body.page-homepage .project-showcase__subtitle,
+  body.page-homepage .project-showcase__copy,
+  body.page-homepage .project-showcase__eyebrow {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 768px) {
+  body.page-homepage {
+    --topbar-height: 5.25rem;
+    scroll-padding-top: var(--topbar-height);
+  }
+
+  body.page-homepage .layout {
+    padding-top: var(--topbar-height);
+  }
+
+  body.page-homepage .main {
+    padding-top: 0.75rem;
+  }
+
+  body.page-homepage .reveal-on-scroll,
+  body.page-homepage .reveal-on-scroll.reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  body.page-homepage .hero {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  body.page-homepage .hero-inner {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    min-height: auto;
+    padding-block: 0.5rem 1rem;
+    padding-inline: 0;
+    gap: 0.65rem;
+  }
+
+  body.page-homepage .hero-visual {
+    order: -1;
+    min-height: auto;
+    max-height: min(40vh, 300px);
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  body.page-homepage .hero-photo-mask {
+    max-width: min(100%, 260px);
+    margin-inline: auto;
+    animation: none;
+  }
+
+  body.page-homepage .hero-photo {
+    max-width: 100%;
+    max-height: min(40vh, 300px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  body.page-homepage .hero-copy {
+    order: 0;
+    padding: 0.5rem 0 1.25rem;
+    padding-inline: 0;
+    text-align: center;
+  }
+
+  body.page-homepage .hero-title {
+    margin-bottom: 0.5rem;
+  }
+
+  body.page-homepage .hero-role {
+    margin: 0 0 0.75rem;
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+  }
+
+  body.page-homepage .hero-copy .lead {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  body.page-homepage .hero-lead-continuation {
+    display: none;
+  }
+
+  body.page-homepage .hero-scroll-hint {
+    margin-top: 1.5rem;
+  }
+
+  body.page-homepage .cta-row {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  body.page-homepage .topbar-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  body.page-homepage .brand {
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 44px;
+    padding-block: 0.25rem;
+  }
+
+  body.page-homepage .brand-name {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  body.page-homepage .brand-portfolio {
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: 0.14em;
+  }
+
+  body.page-homepage .topbar-nav {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;
+    gap: 0;
+  }
+
+  body.page-homepage .topbar-nav a[href="#work"] {
+    display: none !important;
+  }
+
+  body.page-homepage .topbar-nav a.download-cv {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    min-width: auto;
+    padding: 0.5rem 1rem;
+    font-size: var(--ui-control-fs);
+    line-height: var(--ui-control-lh);
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 480px) {
+  body.page-homepage {
+    --topbar-height: 5rem;
+  }
+
+  body.page-homepage .hero-visual {
+    max-height: min(36vh, 270px);
+  }
+
+  body.page-homepage .hero-photo {
+    max-height: min(36vh, 270px);
+  }
+
+  body.page-homepage .hero-photo-mask {
+    max-width: min(100%, 240px);
+  }
+
+  body.page-homepage .project-showcase {
+    border-radius: 24px;
+  }
+
+  body.page-homepage .project-showcase__inner {
+    padding: 1.1rem;
+    gap: 1rem;
+  }
+
+  body.page-homepage .project-showcase__media img {
+    max-width: min(100%, 260px);
+    max-height: min(40vh, 280px);
+  }
+
+  body.page-homepage .hero-title {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+    letter-spacing: 0.1em;
+  }
+
+  body.page-homepage .hero-role {
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+  }
+
+  body.page-homepage .project-showcase__title {
+    font-size: clamp(1.35rem, 5.5vw, 1.65rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-homepage .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

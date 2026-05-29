@@ -1,0 +1,1108 @@
+/**
+ * responsive.css — Global mobile & tablet overrides
+ * Load AFTER all other stylesheets (homepage, case studies, style.css, topbar-shared.css).
+ * Desktop layouts are untouched; rules apply only inside the breakpoints below.
+ */
+
+.toc-scroll-hint {
+  display: none;
+}
+
+/* ==========================================================================
+   1. BREAKPOINT: max-width 992px — Small laptops & large tablets
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  /* --- Safe page shell (no horizontal scroll) --- */
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  svg,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* --- Shared horizontal margins --- */
+  .container,
+  .topbar-inner,
+  .topbar > .container.nav,
+  .topbar-inner--case {
+    width: min(100%, calc(100% - 40px)) !important;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .layout {
+    max-width: 100%;
+  }
+
+  body:not(.page-homepage) .main {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
+
+  body:not(.page-homepage) .projects-section {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
+
+  /* --- Section spacing (case studies + index) --- */
+  section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .section {
+    padding-top: clamp(3rem, 6vw, 4.5rem);
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  /* --- Hero: text above mockups --- */
+  .hero-card,
+  .hero-inner,
+  .hero-grid,
+  .project-showcase__inner,
+  .split-2,
+  .split-flow,
+  .split-analysis,
+  .split-heroish,
+  .highlight-box,
+  .foundation-row,
+  .foundation-row--basics,
+  .foundation-row--split,
+  .final-grid,
+  .hifi-pair,
+  .hifi-grid-2,
+  .sketch-images,
+  .persona-grid-custom,
+  #about .about-grid,
+  .testimonial {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: clamp(1.25rem, 3vw, 2rem) !important;
+    align-items: start;
+  }
+
+  .hero-media,
+  .project-showcase__media,
+  .hero-card .hero-media,
+  .hero-visual {
+    order: -1;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .hero-card > div:first-of-type,
+  .hero-card .foundation-intro,
+  .project-showcase__text {
+    order: 0;
+  }
+
+  .hero-card,
+  .glass-card.soft-card,
+  .goal-card,
+  .headline-panel {
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  /* --- Multi-column content grids → 2 cols on tablet, then 1 below --- */
+  .grid-3,
+  .concept-grid,
+  .persona-grid,
+  .final-columns,
+  .process-grid,
+  .responsibilities-grid,
+  .projects-grid,
+  .services {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .grid-2,
+  .feature-cards,
+  .priority-grid,
+  .wireframe-grid,
+  .hifi-grid-2,
+  .dark-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  /* Case study body: always single column (avoids cards spilling off-screen) */
+  #main-content .grid-3,
+  #main-content .grid-2,
+  #main-content .concept-grid,
+  #main-content .persona-grid,
+  #main-content .process-grid,
+  #main-content .feature-cards,
+  #main-content .priority-grid,
+  #main-content .highlight-box {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* --- Case study: sidebar TOC → horizontal scroll bar --- */
+  .layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .side-nav {
+    position: sticky;
+    top: var(--toc-sticky-top, calc(6.5rem + 1rem));
+    z-index: 50;
+    order: -1;
+    align-self: start;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .toc-card {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-width: min-content;
+    padding-bottom: 4px;
+  }
+
+  .toc-list li {
+    flex: 0 0 auto;
+  }
+
+  .toc-list a {
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Case studies: horizontal swipe TOC + hint */
+  #main-content .toc-card {
+    overflow: visible !important;
+  }
+
+  #main-content .toc-scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0 0.35rem;
+    padding: 0;
+    line-height: 1;
+  }
+
+  #main-content .toc-scroll-arrow {
+    display: inline-block;
+    font-size: 1.35rem;
+    font-weight: 700;
+    animation: toc-arrow-nudge 1.5s ease-in-out infinite;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-arrow {
+    color: #ffffff;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-arrow,
+  body.case-study-iwab #main-content .toc-scroll-arrow {
+    color: #111111;
+  }
+
+  @keyframes toc-arrow-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(5px);
+    }
+  }
+
+  #main-content .toc-scroll-track {
+    display: block;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(122, 31, 86, 0.35) transparent;
+  }
+
+  #main-content .toc-scroll-track .toc-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    min-width: min-content !important;
+    width: max-content !important;
+    padding-right: 0.25rem !important;
+    margin: 0 !important;
+  }
+
+  #main-content .toc-scroll-track .toc-list li {
+    flex: 0 0 auto !important;
+    width: auto !important;
+  }
+
+  #main-content .toc-scroll-track .toc-list a {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    padding: 8px 12px !important;
+    border-radius: 999px !important;
+    scroll-snap-align: start;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a.active {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a {
+    background: rgba(17, 17, 17, 0.06) !important;
+    border: 1px solid #111111 !important;
+    color: #111111 !important;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a.active,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a:hover,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a.active {
+    background: rgba(17, 17, 17, 0.12) !important;
+    border-color: #111111 !important;
+    color: #111111 !important;
+    opacity: 1 !important;
+  }
+
+  /* --- Topbar / brand (align with homepage) --- */
+  .topbar-inner:not(.topbar-inner--case) {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .topbar-inner--case {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-back {
+    width: 44px;
+    height: 44px;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: clamp(1.5rem, 4vw, 1.9rem) !important;
+  }
+
+  .brand-portfolio {
+    font-size: clamp(0.68rem, 1.8vw, 0.78rem) !important;
+  }
+
+  /* --- Homepage project cards --- */
+  .project-showcase__inner {
+    min-height: auto !important;
+  }
+
+  .project-showcase__media img,
+  .project-hero-image,
+  .hero-media img {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  /* --- Index / portfolio hero --- */
+  .hero-grid .hero-card {
+    order: -1;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .foundation-col--left,
+  .foundation-col--right,
+  .sketches-variations-col,
+  .selected-layout {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .timeline-flow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 12px;
+  }
+
+  .phone-wrapper {
+    width: min(100%, 240px);
+    margin-inline: auto;
+  }
+
+  .info-circle {
+    width: min(100%, 220px);
+    margin-inline: auto;
+  }
+
+  .desktop-frame,
+  .mobile-shell {
+    max-width: 100%;
+  }
+
+  .persona-image img,
+  .persona-avatar {
+    max-width: min(280px, 80vw);
+    margin-inline: auto;
+  }
+}
+
+/* ==========================================================================
+   2. BREAKPOINT: max-width 768px — Tablets & large phones
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --topbar-height: 8.75rem;
+    --section-space: 34px;
+  }
+
+  .container,
+  .topbar-inner,
+  .topbar > .container.nav,
+  .topbar-inner--case {
+    width: min(100%, calc(100% - 32px)) !important;
+  }
+
+  body:not(.page-homepage) .main,
+  body:not(.page-homepage) .projects-section {
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+
+  .content-main {
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  /* --- Typography: headings scale down --- */
+  h1,
+  .hero-title,
+  .hero h1,
+  .section-title {
+    font-size: clamp(2rem, 8vw, 2.85rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .hero h1 .soft,
+  .hero-title-name,
+  .project-showcase__subtitle {
+    font-size: clamp(1.35rem, 4.5vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h2.section-title,
+  .projects-section__title {
+    font-size: clamp(1.75rem, 6vw, 2.35rem) !important;
+  }
+
+  h3,
+  .project-showcase__title,
+  .headline-panel h3,
+  .card-heading h3 {
+    font-size: clamp(1.25rem, 4vw, 1.65rem) !important;
+  }
+
+  .brand-name {
+    font-size: clamp(1.4rem, 5.5vw, 1.75rem) !important;
+  }
+
+  .hero-name {
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem) !important;
+  }
+
+  .lead,
+  .section-intro,
+  .project-showcase__copy,
+  .hero-blurb {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* --- All grids → single column --- */
+  .grid-2,
+  .grid-3,
+  .concept-grid,
+  .persona-grid,
+  .persona-grid-custom,
+  .final-columns,
+  .process-grid,
+  .feature-cards,
+  .priority-grid,
+  .wireframe-grid,
+  .responsibilities-grid,
+  .projects-grid,
+  .services,
+  .foundation-row--basics,
+  .hifi-grid-2,
+  .dark-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Inline grid styles in case study HTML */
+  .content-main [style*="grid-template-columns"],
+  .glass-card[style*="grid-template-columns"],
+  div[style*="display: grid"][style*="grid-template-columns"],
+  div[style*="display:grid"][style*="grid-template-columns"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    align-items: start !important;
+  }
+
+  /* --- Hero & project cards: tighter padding --- */
+  .hero-card {
+    padding: clamp(1.35rem, 4vw, 1.75rem) !important;
+    gap: 1.5rem !important;
+  }
+
+  .glass-card,
+  .soft-card,
+  .goal-card,
+  .headline-panel,
+  .persona-case-card,
+  .project-showcase__inner {
+    padding: clamp(1.15rem, 3.5vw, 1.5rem) !important;
+  }
+
+  .image-card {
+    padding: 14px !important;
+  }
+
+  .hero-copy {
+    padding: clamp(1.75rem, 5vh, 2.5rem) 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-inner {
+    row-gap: 1.25rem;
+  }
+
+  .cta-row,
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .cta-row .btn-primary,
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-scroll-hint {
+    margin-inline: auto;
+  }
+
+  /* --- Topbar: stacked like homepage --- */
+  .topbar-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    min-height: auto;
+  }
+
+  .topbar-inner--case {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0.85rem clamp(1rem, 4vw, 1.25rem);
+  }
+
+  .topbar-inner:not(.topbar-inner--case) .topbar-nav,
+  .topbar-inner:not(.topbar-inner--case) .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-start {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .topbar-inner--case .nav-start {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav-back {
+    width: 42px;
+    height: 42px;
+    margin-right: 0.85rem;
+    font-size: 1.4rem;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .topbar-inner--case .brand {
+    justify-content: flex-start;
+  }
+
+  /* Index: hide desktop nav, keep CTA + burger */
+  .nav-links {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .nav-cta {
+    margin-left: auto;
+  }
+
+  /* --- Case study TOC: vertical list on narrow tablets (readable) --- */
+  .toc-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .toc-list li {
+    flex: unset;
+  }
+
+  .toc-list a {
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+    border-radius: 0;
+    background: transparent !important;
+    border: none !important;
+    padding: 8px 0;
+  }
+
+  #main-content .toc-scroll-track .toc-list a {
+    border-radius: 999px !important;
+    padding: 8px 12px !important;
+    white-space: nowrap !important;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  body.case-study-newmom #main-content .toc-scroll-track .toc-list a,
+  body.case-study-iwab #main-content .toc-scroll-track .toc-list a {
+    background: rgba(17, 17, 17, 0.06) !important;
+    border: 1px solid #111111 !important;
+    color: #111111 !important;
+  }
+
+  .side-nav {
+    position: sticky;
+    top: var(--toc-sticky-top, 9.75rem);
+  }
+
+  /* --- Media & mockups --- */
+  .project-showcase__media,
+  .hero-media {
+    padding: clamp(0.75rem, 3vw, 1.25rem) !important;
+  }
+
+  .project-showcase__media img,
+  .hero-media img,
+  .project-hero-image,
+  .hero-photo {
+    max-width: min(100%, 320px);
+    max-height: min(52vh, 420px);
+    margin-inline: auto;
+  }
+
+  .sketch-images img,
+  .image-card img,
+  .media-frame img,
+  .variations-preview-img {
+    border-radius: 16px;
+  }
+
+  .final-grid .desktop-col,
+  .final-grid .mobile-col,
+  .hifi-block .iteration-card {
+    min-width: 0;
+  }
+
+  .hifi-item-small img {
+    max-width: min(100%, 200px);
+    margin-inline: auto;
+  }
+
+  .persona-grid {
+    gap: 16px !important;
+  }
+
+  .persona-grid > .glass-card,
+  .persona-grid-custom > .persona-panel {
+    width: 100%;
+  }
+
+  .timeline-step {
+    min-width: 36px;
+  }
+
+  .section-intro,
+  .section-block {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .contact-form {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: none;
+  }
+
+  .contact-form .btn.primary {
+    width: 100%;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pill-list {
+    padding-left: 1.1rem;
+    line-height: 1.75;
+  }
+}
+
+/* ==========================================================================
+   3. BREAKPOINT: max-width 480px — Smartphones
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .container,
+  .topbar-inner,
+  .topbar > .container.nav,
+  .topbar-inner--case {
+    width: min(100%, calc(100% - 32px)) !important;
+  }
+
+  body:not(.page-homepage) .main,
+  body:not(.page-homepage) .projects-section {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  section {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* --- Typography: compact on small screens --- */
+  h1,
+  .hero-title,
+  .hero h1,
+  .section-title {
+    font-size: clamp(1.75rem, 9vw, 2.35rem) !important;
+  }
+
+  .hero h1 .soft,
+  .project-showcase__subtitle {
+    font-size: clamp(1.15rem, 4.8vw, 1.45rem) !important;
+    margin-top: 0.65rem !important;
+  }
+
+  .projects-section__title {
+    font-size: clamp(1.55rem, 7vw, 2rem) !important;
+  }
+
+  .brand-name {
+    font-size: clamp(1.28rem, 6.5vw, 1.55rem) !important;
+  }
+
+  .brand-portfolio {
+    letter-spacing: 0.14em !important;
+  }
+
+  .section-chip,
+  .toc-label,
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  /* --- Cards & heroes: minimum comfortable padding --- */
+  .hero-card {
+    padding: 1.15rem !important;
+    gap: 1.15rem !important;
+    border-radius: clamp(22px, 5vw, 28px);
+  }
+
+  .glass-card,
+  .soft-card,
+  .goal-card,
+  .headline-panel,
+  .persona-case-card {
+    padding: 1rem !important;
+    border-radius: clamp(16px, 4vw, 20px);
+  }
+
+  .project-showcase {
+    border-radius: 28px;
+  }
+
+  .project-showcase__inner {
+    padding: 1.15rem !important;
+    gap: 1rem !important;
+  }
+
+  .project-showcase__media img,
+  .hero-media img,
+  .project-hero-image {
+    max-width: min(100%, 280px);
+    max-height: min(45vh, 340px);
+  }
+
+  .hero-card .lead,
+  .hero-card .lead + .lead {
+    margin-top: 1rem;
+  }
+
+  .hero-card .lead:first-of-type {
+    margin-top: 1.15rem;
+  }
+
+  /* --- Topbar: compact --- */
+  .topbar-inner {
+    padding: 0.75rem 16px;
+    gap: 0.65rem;
+  }
+
+  .topbar-inner--case {
+    padding: 0.7rem 16px;
+  }
+
+  .nav-back {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.65rem;
+    font-size: 1.3rem;
+    border-radius: 8px;
+  }
+
+  .topbar-nav a,
+  .nav-links a,
+  .topbar-nav a.btn-primary.btn-primary--outline {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  #main-content .toc-scroll-arrow {
+    font-size: 1.2rem;
+  }
+
+  #main-content .toc-scroll-track .toc-list a {
+    padding: 7px 11px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .phone-wrapper {
+    width: min(100%, 200px);
+  }
+
+  .ring-img {
+    width: 72px;
+    left: -6px;
+    bottom: -10px;
+  }
+
+  .info-circle {
+    width: min(100%, 190px);
+    font-size: 11px;
+    padding: 18px;
+  }
+
+  .persona-name {
+    font-size: clamp(1.5rem, 7vw, 1.85rem) !important;
+    text-align: left;
+  }
+
+  .timeline-flow {
+    padding: 12px 8px;
+  }
+
+  .nav-cta .btn.primary {
+    padding: 9px 11px;
+    font-size: 0.8125rem;
+  }
+
+  .filters .btn.pill {
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+  }
+
+  footer a[href^="mailto"],
+  footer a[href^="tel"] {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ==========================================================================
+   4. Touch & motion preferences
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .btn,
+  .nav-back,
+  .burger,
+  .toc-list a,
+  .topbar-nav a,
+  .project-showcase,
+  .filters .btn.pill {
+    touch-action: manipulation;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc-list a,
+  .nav-back,
+  .brand,
+  .project-showcase {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   5. Case studies (newmom.html, etc.) — mobile content visibility
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  /* Case study shell uses #main-content, not .main */
+  #main-content {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
+  }
+
+  #main-content > .container,
+  #main-content > .container.layout,
+  #main-content .hero > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Global section padding is heavy on long case study pages */
+  #main-content > section.hero {
+    padding-top: 1rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  #main-content .content-main > section {
+    padding-top: clamp(1.35rem, 3.5vw, 2rem) !important;
+    padding-bottom: clamp(1.35rem, 3.5vw, 2rem) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    /* Wrapped case-study topbar needs a bit more offset */
+    --topbar-height: 9.5rem;
+  }
+
+  /* Fade-in animation can leave blocks invisible on small screens */
+  .fade-up,
+  .fade-up.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #main-content .content-main {
+    overflow-x: visible !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #main-content .layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    gap: 1.25rem !important;
+  }
+
+  /* Let the page scroll naturally instead of pinning a long TOC */
+  #main-content .side-nav {
+    position: relative !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #main-content .hero-card {
+    overflow: visible !important;
+  }
+
+  #main-content .hero-card h1 {
+    font-size: clamp(1.85rem, 8.2vw, 2.45rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.05em !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  #main-content .hero h1 .soft {
+    font-size: clamp(1.05rem, 4.2vw, 1.4rem) !important;
+    line-height: 1.25 !important;
+    margin-top: 0.65rem !important;
+  }
+
+  #main-content .hero {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  #main-content .hero-media img {
+    width: min(100%, 300px) !important;
+    max-height: min(42vh, 360px);
+    object-fit: contain;
+  }
+
+  #main-content .glass-card,
+  #main-content .image-card,
+  #main-content .soft-card {
+    max-width: 100%;
+    min-width: 0;
+    overflow: visible !important;
+  }
+
+  #main-content .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  #main-content .process-icon {
+    min-height: 96px;
+  }
+
+  #main-content .concept-grid,
+  #main-content .persona-grid,
+  #main-content .feature-cards,
+  #main-content .highlight-box,
+  #main-content .priority-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    min-width: 0;
+  }
+
+  #main-content .content-main [style*="max-width"] {
+    max-width: 100% !important;
+  }
+
+  #main-content .content-main p,
+  #main-content .content-main li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --topbar-height: 10rem;
+  }
+
+  #main-content > section.hero {
+    padding-top: 0.35rem !important;
+  }
+
+  #main-content .hero-card {
+    padding: 1rem !important;
+  }
+
+  #main-content .hero-card h1 {
+    font-size: clamp(1.65rem, 8.5vw, 2.1rem) !important;
+  }
+
+  body.case-study-injuryapp #main-content .toc-scroll-track .toc-list a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #main-content .toc-scroll-arrow {
+    animation: none !important;
+  }
+}
