@@ -228,8 +228,8 @@
       :root {
         --wcag-bg: #fff7fc;
         --wcag-surface: #fff0f8;
-        --wcag-text: #2f1d2b;
-        --wcag-muted: #4a3243;
+        --wcag-text: #000000;
+        --wcag-muted: #000000;
         --wcag-accent: #7a1f56;
         --wcag-accent-contrast: #ffffff;
         --wcag-border: rgba(122, 31, 86, 0.28);
@@ -473,24 +473,24 @@
       }
 
       #overview .meta-list li {
-        color: #6b6178 !important;
+        color: #000000 !important;
         font-weight: 400;
         padding: 0.7rem 0;
       }
 
       #overview .meta-list li strong {
-        color: var(--wcag-text, #2f1d2b) !important;
+        color: #000000 !important;
         font-weight: 700;
       }
 
       #overview .bullet-list li {
-        color: #5c5368 !important;
+        color: #000000 !important;
         font-weight: 400;
         padding: 0.7rem 0;
       }
 
       #overview .card-heading h3 {
-        color: var(--wcag-text, #2f1d2b) !important;
+        color: #000000 !important;
         font-weight: 700;
       }
 
@@ -635,7 +635,6 @@
       .bullet-list li {
         padding: 11px 0;
         border-top: 1px solid rgba(17,17,17,0.06);
-        color: #374151;
       }
 
       .meta-list li:first-child,
@@ -653,7 +652,6 @@
         margin: 0;
         font-size: 1.06rem;
         line-height: 1.88;
-        color: #374151;
       }
 
       .image-card {
@@ -665,6 +663,14 @@
         width: 100%;
         height: auto;
         border-radius: 24px;
+      }
+
+      #research-insights > .image-card {
+        margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+      }
+
+      #research-insights > article.split-analysis + article.split-2 {
+        margin-top: clamp(1.5rem, 4vw, 2.5rem);
       }
 
       .process-grid {
@@ -741,14 +747,12 @@
       .figure-note {
         margin: 14px 0 0;
         text-align: center;
-        color: #374151;
         font-weight: 500;
       }
 
       .pill-list {
         margin: 24px 0;
         padding-left: 20px;
-        color: #374151;
         line-height: 2;
         font-size: 1rem;
       }
@@ -1184,6 +1188,21 @@
           scroll-snap-align: start;
         }
       }
+
+      /* All text black on mobile and desktop */
+      html body.case-study-newmom,
+      html body.case-study-newmom * {
+        color: #000000 !important;
+      }
+
+      html body.case-study-newmom #overview .grid-3 .glass-card.soft-card,
+      html body.case-study-newmom #overview .grid-3 .glass-card.soft-card h3,
+      html body.case-study-newmom #overview .meta-list li,
+      html body.case-study-newmom #overview .meta-list li strong,
+      html body.case-study-newmom #overview .bullet-list li,
+      html body.case-study-newmom #overview .card-heading h3 {
+        color: #000000 !important;
+      }
     </style>
   </head>
 
@@ -1246,7 +1265,7 @@
               <ul class="toc-list">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#process">Process</a></li>
-                <li><a href="#research-insights">Research, analysis &amp; insights</a></li>
+                <li><a href="#research-insights">Research</a></li>
                 <li><a href="#ideation">Ideation</a></li>
                 <li><a href="#design-solution">Design solution</a></li>
                 <li><a href="#structure-flows">Structure &amp; flows</a></li>
@@ -1259,8 +1278,7 @@
         </aside>
 
         <div class="content-main">
-          <section id="overview" aria-labelledby="overview-title">
-            <h2 class="section-title fade-up" id="overview-title">Project overview</h2>
+          <section id="overview" aria-label="Overview">
             <div class="grid-3">
               <article class="glass-card soft-card fade-up">
                 <div class="card-heading">
@@ -1308,39 +1326,38 @@
             </article>
           </section>
 
-          <section id="process" aria-labelledby="process-title">
+          <section id="process" aria-label="Process">
             <div class="section-chip">Design thinking</div>
-            <h2 class="section-title fade-up" id="process-title">Design thinking process</h2>
 
             <article class="glass-card soft-card fade-up">
               <div class="process-grid">
                 <div class="process-item">
-                  <h3>Empathise</h3>
+                  <h3>Research</h3>
                   <div class="process-icon"><i data-lucide="heart"></i></div>
                 </div>
 
                 <div class="process-item">
-                  <h3>Define</h3>
+                  <h3>Analysis</h3>
                   <div class="process-icon"><i data-lucide="search"></i></div>
                 </div>
 
                 <div class="process-item">
-                  <h3>Ideate</h3>
+                  <h3>Ideation</h3>
                   <div class="process-icon"><i data-lucide="lightbulb"></i></div>
                 </div>
 
                 <div class="process-item">
-                  <h3>Prototype</h3>
+                  <h3>User Flows</h3>
                   <div class="process-icon"><i data-lucide="wrench"></i></div>
                 </div>
 
                 <div class="process-item">
-                  <h3>Test</h3>
+                  <h3>Wireframes</h3>
                   <div class="process-icon"><i data-lucide="clipboard-check"></i></div>
                 </div>
 
                 <div class="process-item">
-                  <h3>Implement</h3>
+                  <h3>High fidelity</h3>
                   <div class="process-icon"><i data-lucide="rocket"></i></div>
                 </div>
               </div>
@@ -1362,32 +1379,31 @@
                 <a
                   href="Uxstudy.pdf"
                   download="Uxstudy.pdf"
-                  style="color: var(--wcag-accent) !important; font-weight: 600; text-decoration: underline;"
+                  style="font-weight: 600; text-decoration: underline;"
                   >Download full Research case study</a>
               </p>
 
               <div class="grid-3">
                 <article class="glass-card soft-pink fade-up">
                   <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Interviews</h4>
-                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Interviews with new mothers</p>
+                  <p style="margin: 0; font-size: 1.05rem; line-height: 1.7;">Interviews with new mothers</p>
                 </article>
 
                 <article class="glass-card soft-pink fade-up">
                   <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Literature Review</h4>
-                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Postpartum recovery and exercise safety</p>
+                  <p style="margin: 0; font-size: 1.05rem; line-height: 1.7;">Postpartum recovery and exercise safety</p>
                 </article>
 
                 <article class="glass-card soft-pink fade-up">
                   <h4 style="margin: 0 0 24px; font-size: 1.2rem; font-weight: 600;">Competitive Analysis</h4>
-                  <p style="margin: 0; color: #4b5563; font-size: 1.05rem; line-height: 1.7;">Analysis of existing postnatal fitness apps</p>
+                  <p style="margin: 0; font-size: 1.05rem; line-height: 1.7;">Analysis of existing postnatal fitness apps</p>
                 </article>
               </div>
             </div>
           </section>
 
-          <section id="research-insights" aria-labelledby="research-insights-title">
-            <div class="section-chip">Research</div>
-            <h2 class="section-title fade-up" id="research-insights-title">Research, analysis &amp; insights</h2>
+          <section id="research-insights" aria-label="Research, analysis and insights">
+            <div class="section-chip">Research, analysis &amp; insights</div>
 
             <div class="glass-card image-card fade-up section-block">
               <img
@@ -1396,15 +1412,13 @@
               />
             </div>
 
-            <div class="section-chip">Making sense of research</div>
-
             <article class="glass-card soft-card split-analysis fade-up" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;">
               <div>
                 <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">
                   Collecting & Analysing data
                 </h2>
 
-                <p style="color:#4b5563; line-height:1.8; font-size:1.05rem; max-width:520px;">
+                <p style="line-height:1.8; font-size:1.05rem; max-width:520px;">
                   Research data was organised using affinity mapping to identify patterns, themes, and user pain points.
                 </p>
 
@@ -1423,7 +1437,7 @@
             <article class="glass-card soft-card split-analysis fade-up" style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;">
               <div>
                 <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Empathy map</h2>
-                <p style="color:#4b5563; line-height:1.8; font-size:1.05rem; max-width:520px;">
+                <p style="line-height:1.8; font-size:1.05rem; max-width:520px;">
                   An empathy map was created to better understand users’ thoughts, feelings, and challenges during postpartum recovery.
                 </p>
               </div>
@@ -1433,15 +1447,13 @@
               </div>
             </article>
 
-            <div class="section-chip">Research synthesis</div>
-
             <article class="glass-card soft-card split-2 fade-up" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;">
               <div>
                 <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">
                   Key Findings from Research
                 </h2>
 
-                <p style="color:#4b5563; line-height:1.8; max-width:520px;">
+                <p style="line-height:1.8; max-width:520px;">
                   Research identified several barriers preventing new mothers from returning to exercise after childbirth.
                 </p>
 
@@ -1480,7 +1492,7 @@
 
               <div>
                 <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">Key Insights</h2>
-                <p style="color:#4b5563; line-height:1.8; max-width:520px;">
+                <p style="line-height:1.8; max-width:520px;">
                   These findings revealed several opportunities for the design.
                 </p>
 
@@ -1511,7 +1523,7 @@
             <article class="glass-card soft-card section-block fade-up">
               <h2 style="margin:0 0 14px; font-size:2rem; letter-spacing:-0.03em;">Persona</h2>
 
-              <p style="color:#4b5563; line-height:1.8; max-width:760px; margin-bottom:28px;">
+              <p style="line-height:1.8; max-width:760px; margin-bottom:28px;">
                 Based on the research findings, a primary persona was created to represent the needs and challenges of the target users. The persona helped guide design decisions throughout the project and ensured the solution focused on real user needs.
               </p>
 
@@ -1519,14 +1531,14 @@
                 <div class="glass-card center-card soft-card">
                   <img src="persona1.png" alt="Persona Anna" class="persona-avatar" />
                   <h3 style="margin:16px 0 8px;">Anna, 34 – New Mother</h3>
-                  <p style="color:#4b5563; font-size:0.95rem; line-height:1.75; margin:0;">
+                  <p style="font-size:0.95rem; line-height:1.75; margin:0;">
                     Anna is a first-time mother who wants to regain her strength and well-being after pregnancy. She wants to stay active but struggles to balance exercise with the demands of caring for her newborn.
                   </p>
                 </div>
 
                 <div class="glass-card soft-card">
                   <h3 style="margin:0 0 10px;">Goals</h3>
-                  <ul style="color:#4b5563; line-height:1.9; margin:0;">
+                  <ul style="line-height:1.9; margin:0;">
                     <li>Regain strength and fitness after childbirth</li>
                     <li>Improve overall well-being and confidence</li>
                     <li>Find workouts that fit into a busy daily routine</li>
@@ -1535,7 +1547,7 @@
 
                 <div class="glass-card soft-card">
                   <h3 style="margin:0 0 10px;">Frustrations</h3>
-                  <ul style="color:#4b5563; line-height:1.9; margin:0;">
+                  <ul style="line-height:1.9; margin:0;">
                     <li>Unsure which exercises are safe after childbirth</li>
                     <li>Limited time and energy for long workouts</li>
                     <li>Lack of guidance tailored to postpartum recovery</li>
@@ -1591,40 +1603,40 @@
             <article class="glass-card soft-card section-block fade-up">
               <h2 style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Ideation</h2>
 
-              <p style="margin:0; max-width:900px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+              <p style="margin:0; max-width:900px; line-height:1.8; font-size:1.02rem;">
                 During the ideation phase, brainstorming and concept development were used to explore solutions based on the research insights and persona needs.
               </p>
 
-              <p style="margin:30px 0 18px; font-weight:600; color:#374151;">Three concepts were developed:</p>
+              <p style="margin:30px 0 18px; font-weight:600; ">Three concepts were developed:</p>
 
               <div class="concept-grid">
                 <article class="glass-card soft-pink">
                   <img src="concept1.png" alt="Social support concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
                   <strong style="display:block; margin-bottom:8px;">Social Support App</strong>
-                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">A platform where new mothers could connect and motivate each other.</p>
+                  <p style="margin:0; line-height:1.7; font-size:0.95rem;">A platform where new mothers could connect and motivate each other.</p>
                 </article>
 
                 <article class="glass-card soft-pink">
                   <img src="concept-2.png" alt="Customized postpartum training app concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
                   <strong style="display:block; margin-bottom:8px;">Customized Postnatal Training App</strong>
-                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">Personalised workout programs adapted to postpartum recovery.</p>
+                  <p style="margin:0; line-height:1.7; font-size:0.95rem;">Personalised workout programs adapted to postpartum recovery.</p>
                 </article>
 
                 <article class="glass-card soft-pink">
                   <img src="concept-3.png" alt="Nutrition and wellness hub concept" style="width:100%; border-radius:16px; margin-bottom:14px;" />
                   <strong style="display:block; margin-bottom:8px;">Nutrition and Wellness Hub</strong>
-                  <p style="margin:0; color:#4b5563; line-height:1.7; font-size:0.95rem;">A solution combining fitness, nutrition guidance, and well-being support.</p>
+                  <p style="margin:0; line-height:1.7; font-size:0.95rem;">A solution combining fitness, nutrition guidance, and well-being support.</p>
                 </article>
               </div>
 
-              <p style="margin:30px 0 18px; color:#4b5563; line-height:1.8;">
+              <p style="margin:30px 0 18px; line-height:1.8;">
                 The concepts were evaluated to determine which solution best addressed the user needs.
               </p>
 
               <article class="glass-card soft-pink">
                 <h3 style="margin:0 0 14px; font-size:1.4rem;">Concept Selection</h3>
 
-                <p style="margin:0 0 20px; color:#4b5563; line-height:1.8; max-width:700px;">
+                <p style="margin:0 0 20px; line-height:1.8; max-width:700px;">
                   After evaluating the three concepts, the Customized Postnatal Training App was selected as the final direction.
                 </p>
 
@@ -1632,18 +1644,18 @@
 
                 <div class="highlight-box">
                   <div>
-                    <p style="margin:0 0 8px; font-weight:700; color:#166534;">● Selected Concept</p>
+                    <p style="margin:0 0 8px; font-weight:700; ">● Selected Concept</p>
                     <h4 style="margin:0; font-size:1.3rem;">Customized Postnatal Training App</h4>
                   </div>
 
-                  <ul style="margin:0; color:#4b5563; line-height:1.9; padding-left:20px;">
+                  <ul style="margin:0; line-height:1.9; padding-left:20px;">
                     <li>Safe postpartum exercises</li>
                     <li>Personalized workout programs</li>
                     <li>Flexible workouts for busy routines</li>
                   </ul>
                 </div>
 
-                <p style="margin:18px 0 0; color:#4b5563; line-height:1.8; max-width:760px;">
+                <p style="margin:18px 0 0; line-height:1.8; max-width:760px;">
                   The solution focuses on guided workouts tailored to different recovery stages, helping users regain strength and confidence after childbirth.
                 </p>
               </article>
@@ -1658,11 +1670,11 @@
                 Design Solution
               </h2>
 
-              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 14px;">
+              <p style="max-width:900px;  line-height:1.9; font-size:1.05rem; margin:0 0 14px;">
                 After selecting the concept, the design was developed through feature prioritisation, user flows, and wireframes.
               </p>
 
-              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 48px;">
+              <p style="max-width:900px;  line-height:1.9; font-size:1.05rem; margin:0 0 48px;">
                 Using the MoSCoW method, core features were defined and two key flows were mapped: starting a workout and setting a goal.
               </p>
 
@@ -1670,7 +1682,7 @@
                 Feature Prioritisation
               </h3>
 
-              <p style="max-width:900px; color:#374151; line-height:1.9; font-size:1.05rem; margin:0 0 34px;">
+              <p style="max-width:900px;  line-height:1.9; font-size:1.05rem; margin:0 0 34px;">
                 To translate the research insights into a focused design solution, the app’s features were prioritised using the MoSCoW method.
               </p>
 
@@ -1741,7 +1753,7 @@
               <div>
                 <h2 id="structure-flows-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Structure &amp; flows</h2>
 
-                <p style="margin:0; color:#4b5563; line-height:1.8; font-size:1.02rem; max-width:500px;">
+                <p style="margin:0; line-height:1.8; font-size:1.02rem; max-width:500px;">
                   Key user flows were mapped out to define how users would navigate the app and complete important tasks.
                 </p>
 
@@ -1752,7 +1764,7 @@
                   <li>Set and track goals</li>
                 </ul>
 
-                <p style="margin:0; color:#4b5563; line-height:1.8; font-size:1.02rem; max-width:520px;">
+                <p style="margin:0; line-height:1.8; font-size:1.02rem; max-width:520px;">
                   These flows guided the structure of the wireframes and helped keep the experience simple and intuitive.
                 </p>
               </div>
@@ -1770,11 +1782,11 @@
             <article class="glass-card soft-card section-block fade-up">
               <h2 id="wireframes-title" style="margin:0 0 18px; font-size:2rem; letter-spacing:-0.03em;">Wireframes</h2>
 
-              <p style="margin:0; max-width:640px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+              <p style="margin:0; max-width:640px; line-height:1.8; font-size:1.02rem;">
                 Based on the prioritised features and user flows, low-fidelity wireframes were created to explore the structure and navigation of the app.
               </p>
 
-              <p style="margin:26px 0 0; color:#4b5563; line-height:1.8; font-size:1.02rem;">
+              <p style="margin:26px 0 0; line-height:1.8; font-size:1.02rem;">
                 The wireframes focused on the core user journey, including:
               </p>
 
@@ -1786,11 +1798,10 @@
                 <li>Goals and progress tracking</li>
               </ul>
 
-              <p style="margin:0 0 28px; max-width:700px; color:#4b5563; line-height:1.8; font-size:1.02rem;">
-                The goal was to ensure users could quickly find workouts and start exercising in a simple and intuitive way.
-              </p>
-
-              <div class="glass-card soft-purple" style="padding:20px;">
+              <div class="glass-card soft-purple" style="padding:20px; margin-bottom:28px;">
+                <p style="margin:0; max-width:700px; line-height:1.8; font-size:1.02rem;">
+                  The goal was to ensure users could quickly find workouts and start exercising in a simple and intuitive way.
+                </p>
               </div>
 
               <div class="glass-card soft-pink" style="margin-top:24px; padding:20px;">
@@ -1807,15 +1818,15 @@
                 Usability testing
               </h2>
 
-              <p style="max-width:800px; color:#4b5563; line-height:1.8;">
+              <p style="max-width:800px; line-height:1.8;">
                 Usability testing was conducted to evaluate how easily users could navigate the wireframes and complete key tasks in the app. The goal was to identify usability issues and understand how well the design supported the needs of new mothers.
               </p>
 
-              <p style="max-width:800px; color:#4b5563; line-height:1.8;">
+              <p style="max-width:800px; line-height:1.8;">
                 A moderated usability test was carried out where participants were asked to complete tasks such as creating a profile, finding a workout, starting a session, and view their progress.
               </p>
 
-              <p style="max-width:800px; color:#4b5563; line-height:1.8; margin-bottom:26px;">
+              <p style="max-width:800px; line-height:1.8; margin-bottom:26px;">
                 The testing revealed that while the overall structure was easy to understand, some elements needed clearer labels and stronger visual hierarchy to improve navigation and usability.
               </p>
 
@@ -1830,15 +1841,15 @@
               <div>
                 <h2 style="margin:0 0 16px; font-size:2rem; letter-spacing:-0.03em;">Results & Improvements</h2>
 
-                <p style="color:#4b5563; line-height:1.8;">
+                <p style="line-height:1.8;">
                   Usability testing showed that users were generally able to complete the tasks, but also revealed some areas for improvement.
                 </p>
 
-                <p style="color:#4b5563; line-height:1.8;">
+                <p style="line-height:1.8;">
                   Some participants suggested adding more steps in the onboarding process to make it clearer what goals and preferences they selected. The testing also highlighted that the “Recommended for you” card was difficult to identify, as it looked similar to the other exercise cards and needed stronger visual hierarchy.
                 </p>
 
-                <p style="color:#4b5563; line-height:1.8;">
+                <p style="line-height:1.8;">
                   These insights helped identify improvements for future iterations of the design.
                 </p>
               </div>
